@@ -551,7 +551,7 @@ footer {
 
 <!-- FORM -->
 <div class="form-wrap">
-  <form id="noghost-form" action="https://formspree.io/f/xpqepkla" method="POST">
+  <form id="noghost-form" action="https://formspree.io/f/xpqepkla" method="POST" novalidate>
 
     <!-- Hidden fields -->
     <input type="hidden" name="_subject" value="New NoGhost Inquiry">
@@ -875,11 +875,12 @@ footer {
       </div>
 
       <div style="text-align:center; margin-top: 40px;">
-        <button type="submit" class="btn-submit">Let's Build My Page →</button>
+        <button type="submit" class="btn-submit" id="submit-btn">Let's Build My Page →</button>
         <div class="submit-micro">
           ⚡ We respond within 24 hours — Monday through Friday.<br>
           Because people shouldn't have to guess how to work with you.
         </div>
+        <div id="submit-error" style="display:none; margin-top:16px; padding:14px 18px; background:#FFE4E0; border:1px solid #FF6B5B; border-radius:10px; color:#8B2B1F; font-size:14px; font-weight:600;"></div>
       </div>
 
       <div class="form-nav" style="border-top: none; margin-top: 20px; padding-top: 0;">
@@ -948,8 +949,19 @@ function toggleSpecify(id, checkbox) {
 
 // ── FORM SUBMIT → THANK YOU ──
 const form = document.getElementById('noghost-form');
+const submitBtn = document.getElementById('submit-btn');
+const errorBox = document.getElementById('submit-error');
+
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
+  errorBox.style.display = 'none';
+
+  // Loading state
+  const originalText = submitBtn.innerHTML;
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Sending… ⏳';
+  submitBtn.style.opacity = '0.7';
+
   const data = new FormData(form);
   try {
     const res = await fetch(form.action, {
@@ -962,10 +974,20 @@ form.addEventListener('submit', async function(e) {
       document.getElementById('thankyou').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      alert('Something went wrong. Please try again or email us directly.');
+      const errData = await res.json().catch(() => ({}));
+      const msg = errData.errors ? errData.errors.map(er => er.message).join(', ') : ('Submission failed (HTTP ' + res.status + '). Please try again or email us directly.');
+      errorBox.textContent = msg;
+      errorBox.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+      submitBtn.style.opacity = '1';
     }
   } catch(err) {
-    alert('Something went wrong. Please try again.');
+    errorBox.textContent = 'Network error: ' + err.message + '. Please check your connection and try again.';
+    errorBox.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+    submitBtn.style.opacity = '1';
   }
 });
 </script>
