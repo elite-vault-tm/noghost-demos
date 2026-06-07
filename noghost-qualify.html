@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NoGhost · Let's Build Your Booking Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFF8EC;
+  --bg-card: #FFFFFF;
+  --bg-warm: #FFE8D0;
+  --bg-mint: #E8F4EE;
+  --coral: #FF6B5B;
+  --coral-deep: #E04A3A;
+  --mango: #FFA94D;
+  --mint: #5FB89A;
+  --text-dark: #2A1A1A;
+  --text-mid: #6B4F4F;
+  --text-soft: #9B8585;
+  --border: #F0DDC0;
+  --border-mid: #E0C8A8;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-ui: 'Manrope', system-ui, sans-serif;
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 24px;
+  --r-pill: 999px;
+  --shadow-sm: 0 4px 12px rgba(255,168,120,0.10);
+  --shadow-md: 0 8px 32px rgba(255,168,120,0.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text-dark);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  background: rgba(255,248,236,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--coral); }
+
+.nav-back {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.nav-back:hover { color: var(--text-dark); }
+
+/* ── HERO ── */
+.page-hero {
+  background: var(--bg-warm);
+  padding: 72px 40px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,169,77,0.18) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -40px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,107,91,0.12) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 20px;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.hero-h1 em { font-style: italic; color: var(--coral); }
+
+.hero-sub {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-sub-item { display: flex; align-items: center; gap: 6px; }
+.hero-sub-item::before { content: '✦'; color: var(--mango); font-size: 10px; }
+
+/* ── FORM WRAPPER ── */
+.form-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 40px 80px;
+}
+
+/* ── STEP ── */
+.form-step { display: none; }
+.form-step.active { display: block; }
+
+/* Step header */
+.step-header {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.step-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-label::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--coral);
+  opacity: 0.5;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.step-sub {
+  font-size: 15px;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+/* ── QUESTION BLOCKS ── */
+.q-block { margin-bottom: 32px; }
+
+.q-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.q-helper {
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-bottom: 10px;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* Text inputs */
+.q-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 2px solid var(--border-mid);
+  border-radius: var(--r-sm);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--text-dark);
+  background: var(--bg-card);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.q-input:focus {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(255,107,91,0.1);
+}
+
+textarea.q-input { resize: vertical; min-height: 100px; }
+
+.q-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* Radio options */
+.radio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.radio-grid.single-col { grid-template-columns: 1fr; }
+.radio-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
+
+.radio-opt {
+  position: relative;
+}
+
+.radio-opt input[type="radio"],
+.radio-opt input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-opt label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 2px solid var(--border-mid);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-mid);
+  transition: all 0.15s;
+  line-height: 1.3;
+}
+
+.radio-opt label::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-mid);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.radio-opt input[type="checkbox"] + label::before {
+  border-radius: 4px;
+}
+
+.radio-opt input:checked + label {
+  border-color: var(--coral);
+  background: rgba(255,107,91,0.06);
+  color: var(--text-dark);
+}
+
+.radio-opt input:checked + label::before {
+  background: var(--coral);
+  border-color: var(--coral);
+  box-shadow: inset 0 0 0 3px white;
+}
+
+.radio-opt input[type="checkbox"]:checked + label::before {
+  background: var(--coral);
+  border-color: var(--coral);
+  box-shadow: none;
+  content: '✓';
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-opt label:hover {
+  border-color: var(--coral);
+  background: rgba(255,107,91,0.04);
+}
+
+/* Specify field */
+.specify-wrap { display: none; margin-top: 10px; }
+.specify-wrap.visible { display: block; }
+
+/* Conditional section */
+.conditional-block { display: none; }
+.conditional-block.visible { display: block; }
+
+/* ── DIVIDER ── */
+.q-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0 32px;
+}
+
+/* ── NAV BUTTONS ── */
+.form-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-next {
+  background: var(--coral);
+  color: white;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  padding: 15px 36px;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-next:hover {
+  background: var(--coral-deep);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(255,107,91,0.28);
+}
+
+.btn-back-form {
+  background: none;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+}
+
+.btn-back-form:hover { color: var(--text-dark); }
+
+.btn-submit {
+  background: var(--coral);
+  color: white;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  padding: 17px 44px;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-submit:hover {
+  background: var(--coral-deep);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(255,107,91,0.28);
+}
+
+.submit-micro {
+  font-size: 13px;
+  color: var(--text-soft);
+  margin-top: 12px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ── THANK YOU ── */
+.thankyou { display: none; text-align: center; padding: 72px 24px; }
+.thankyou.active { display: block; }
+
+.ty-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(95,184,154,0.12);
+  border: 3px solid var(--mint);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin: 0 auto 28px;
+}
+
+.ty-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 400;
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.ty-h2 em { font-style: italic; color: var(--coral); }
+
+.ty-body {
+  font-size: 16px;
+  color: var(--text-soft);
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 0 auto 36px;
+}
+
+.ty-body strong { color: var(--text-dark); font-weight: 700; }
+
+.ty-note {
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 20px 24px;
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--text-dark);
+  padding: 32px 40px;
+  text-align: center;
+  border-top: 2px solid var(--mango);
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: #FFF8EC;
+  margin-bottom: 6px;
+}
+
+.footer-logo span { color: var(--coral); }
+.footer-sub { font-size: 12px; color: rgba(255,248,236,0.3); letter-spacing: 0.05em; }
+.footer-powered { font-size: 11px; color: rgba(255,169,77,0.4); margin-top: 6px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .form-wrap { padding: 40px 24px 64px; }
+  .page-hero { padding: 56px 24px 48px; }
+  nav { padding: 0 24px; }
+  footer { padding: 28px 24px; }
+  .radio-grid { grid-template-columns: 1fr; }
+  .radio-grid.three-col { grid-template-columns: 1fr 1fr; }
+  .q-row { grid-template-columns: 1fr; }
+  .form-nav { flex-direction: column-reverse; gap: 16px; align-items: stretch; }
+  .btn-next, .btn-submit { width: 100%; justify-content: center; }
+  .btn-back-form { justify-content: center; }
+  .hero-sub { flex-direction: column; gap: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">No<span>Ghost</span></a>
+    <a href="index.html" class="nav-back">← Back to NoGhost</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Get Started</div>
+    <h1 class="hero-h1">Let's Build Your<br><em>NoGhost</em> Booking Page</h1>
+    <div class="hero-sub">
+      <span class="hero-sub-item">Takes about 4 minutes</span>
+      <span class="hero-sub-item">We respond within 24 hours</span>
+      <span class="hero-sub-item">Spots are limited each month</span>
+    </div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-wrap">
+  <form id="noghost-form" action="https://formspree.io/f/xpqepkla" method="POST">
+
+    <!-- Hidden fields -->
+    <input type="hidden" name="_subject" value="New NoGhost Inquiry">
+    <input type="hidden" name="_replyto" id="reply-to-hidden">
+
+    <!-- ══════════════════════════════════════
+         STEP 1 — About You
+    ══════════════════════════════════════ -->
+    <div class="form-step active" id="step-1">
+      <div class="step-header">
+        <div class="step-label">Step 1 of 4</div>
+        <div class="step-title">About You</div>
+        <div class="step-sub">Tell us who you are and what you do. Keep it real — your voice helps us build the right page for your business.</div>
+      </div>
+
+      <!-- Q1 -->
+      <div class="q-block">
+        <label class="q-label" for="q1">What's the name of your business and what do you do, in your own words?</label>
+        <div class="q-helper">Example: "I'm Maya and I own Lash House Atlanta — a luxury lash studio specializing in volume sets."</div>
+        <input class="q-input" type="text" id="q1" name="Business Name & Description" placeholder="Tell us about your business..." required>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-block">
+        <label class="q-label">What type of business is it?</label>
+        <div class="radio-grid">
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt1" value="Hairstylist"><label for="bt1">Hairstylist</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt2" value="Braider"><label for="bt2">Braider</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt3" value="Loctician"><label for="bt3">Loctician</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt4" value="Barber"><label for="bt4">Barber</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt5" value="Nail Tech"><label for="bt5">Nail Tech</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt6" value="Esthetician / Lash / Brow Artist"><label for="bt6">Esthetician / Lash / Brow</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt7" value="Massage Therapist / Bodyworker"><label for="bt7">Massage / Bodywork</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt8" value="Beauty Professional (other)"><label for="bt8">Beauty Pro (other)</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt9" value="Photographer"><label for="bt9">Photographer</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt10" value="Travel Advisor"><label for="bt10">Travel Advisor</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt11" value="Event Planner"><label for="bt11">Event Planner</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt12" value="Coach / Consultant"><label for="bt12">Coach / Consultant</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt13" value="Fitness Trainer / Yoga Instructor"><label for="bt13">Fitness / Yoga</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt14" value="Cleaning Service"><label for="bt14">Cleaning Service</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt15" value="Tutor / Educator"><label for="bt15">Tutor / Educator</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt16" value="Realtor"><label for="bt16">Realtor</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt17" value="Local Service Business"><label for="bt17">Local Service Business</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt18" value="Other" onchange="toggleSpecify('bt-other-specify', this)"><label for="bt18">Other</label></div>
+        </div>
+        <div class="specify-wrap" id="bt-other-specify">
+          <input class="q-input" type="text" name="Business Type (Other)" placeholder="Tell us your business type...">
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-block">
+        <label class="q-label">Where are you based?</label>
+        <div class="q-row">
+          <input class="q-input" type="text" name="City" placeholder="City" required>
+          <input class="q-input" type="text" name="State" placeholder="State" required>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <div></div>
+        <button type="button" class="btn-next" onclick="goToStep(2)">Continue → Step 2</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         STEP 2 — Your Current Setup
+    ══════════════════════════════════════ -->
+    <div class="form-step" id="step-2">
+      <div class="step-header">
+        <div class="step-label">Step 2 of 4</div>
+        <div class="step-title">Your Current Setup</div>
+        <div class="step-sub">Help us understand where you are right now so we know what to build — or rebuild — from.</div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="q-block">
+        <label class="q-label">Do you currently have a website?</label>
+        <div class="radio-grid single-col">
+          <div class="radio-opt"><input type="radio" name="Has Website" id="hw1" value="Yes — I have a full website" onchange="toggleConditional('website-link-block', true)"><label for="hw1">Yes — I have a full website</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Website" id="hw2" value="No — nothing yet" onchange="toggleConditional('website-link-block', false)"><label for="hw2">No — nothing yet</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Website" id="hw3" value="Just a link in bio (Linktree, Beacons, Stan Store, etc.)" onchange="toggleConditional('website-link-block', true)"><label for="hw3">Just a link in bio (Linktree, Beacons, Stan Store, etc.)</label></div>
+        </div>
+      </div>
+
+      <!-- Q5 — conditional -->
+      <div class="conditional-block" id="website-link-block">
+        <div class="q-block">
+          <label class="q-label" for="q5">Share the link</label>
+          <input class="q-input" type="url" id="q5" name="Website / Link in Bio URL" placeholder="https://...">
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="q-block">
+        <label class="q-label">Drop your social handles so we can see your brand vibe</label>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <input class="q-input" type="text" name="Instagram Handle" placeholder="Instagram: @yourhandle">
+          <input class="q-input" type="text" name="TikTok Handle" placeholder="TikTok: @yourhandle">
+          <input class="q-input" type="text" name="Facebook Page" placeholder="Facebook Page name or URL">
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="q-block">
+        <label class="q-label">Do you currently have a way for people to book online?</label>
+        <div class="radio-grid single-col">
+          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb1" value="Yes — has booking link" onchange="toggleConditional('booking-link-block', true)"><label for="hb1">Yes — share the booking link below</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb2" value="No — books through DM, text, or calls" onchange="toggleConditional('booking-link-block', false)"><label for="hb2">No — clients book through DM, text, or calls</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb3" value="Sort of — messy and doesn't really work" onchange="toggleConditional('booking-link-block', false)"><label for="hb3">Sort of — but it's messy and doesn't really work</label></div>
+        </div>
+      </div>
+
+      <!-- Q8 — conditional -->
+      <div class="conditional-block" id="booking-link-block">
+        <div class="q-block">
+          <label class="q-label" for="q8">Share your booking link</label>
+          <input class="q-input" type="url" id="q8" name="Current Booking Link" placeholder="https://...">
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="q-block">
+        <label class="q-label">Where do most of your inquiries come from? (Select all that apply)</label>
+        <div class="radio-grid">
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is1" value="Facebook"><label for="is1">Facebook</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is2" value="Instagram"><label for="is2">Instagram</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is3" value="TikTok"><label for="is3">TikTok</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is4" value="Google"><label for="is4">Google</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is5" value="Word of mouth / referrals"><label for="is5">Word of mouth / referrals</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is6" value="My existing website"><label for="is6">My existing website</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is7" value="Email list"><label for="is7">Email list</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is8" value="I don't really get inquiries yet"><label for="is8">I don't really get inquiries yet</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources" id="is9" value="Other" onchange="toggleSpecify('inq-other-specify', this)"><label for="is9">Other</label></div>
+        </div>
+        <div class="specify-wrap" id="inq-other-specify">
+          <input class="q-input" type="text" name="Inquiry Sources (Other)" placeholder="Where else do inquiries come from?">
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="q-block">
+        <label class="q-label">What usually happens after someone says they're interested?</label>
+        <div class="radio-grid single-col">
+          <div class="radio-opt"><input type="radio" name="After Interest" id="ai1" value="They send me a DM"><label for="ai1">They send me a DM</label></div>
+          <div class="radio-opt"><input type="radio" name="After Interest" id="ai2" value="They text me"><label for="ai2">They text me</label></div>
+          <div class="radio-opt"><input type="radio" name="After Interest" id="ai3" value="They call me"><label for="ai3">They call me</label></div>
+          <div class="radio-opt"><input type="radio" name="After Interest" id="ai4" value="I send them a booking link"><label for="ai4">I send them a booking link</label></div>
+          <div class="radio-opt"><input type="radio" name="After Interest" id="ai5" value="I don't really have a process"><label for="ai5">I don't really have a process</label></div>
+          <div class="radio-opt"><input type="radio" name="After Interest" id="ai6" value="Other" onchange="toggleSpecify('after-other-specify', this)"><label for="ai6">Other</label></div>
+        </div>
+        <div class="specify-wrap" id="after-other-specify">
+          <input class="q-input" type="text" name="After Interest (Other)" placeholder="Tell us what usually happens...">
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-back-form" onclick="goToStep(1)">← Back</button>
+        <button type="button" class="btn-next" onclick="goToStep(3)">Continue → Step 3</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         STEP 3 — Your Situation
+    ══════════════════════════════════════ -->
+    <div class="form-step" id="step-3">
+      <div class="step-header">
+        <div class="step-label">Step 3 of 4</div>
+        <div class="step-title">Your Situation</div>
+        <div class="step-sub">Now the real talk — what's actually broken, and what would success look like?</div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="q-block">
+        <label class="q-label">What's your biggest challenge right now? (Select all that apply)</label>
+        <div class="radio-grid">
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch1" value="Too many questions in DMs"><label for="ch1">Too many questions in DMs</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch2" value="People say they're interested but never book"><label for="ch2">People say they're interested but never book</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch3" value="No clear booking process"><label for="ch3">No clear booking process</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch4" value="Too many no-shows"><label for="ch4">Too many no-shows</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch5" value="Losing money to no-shows"><label for="ch5">Losing money to no-shows</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch6" value="Don't know how to follow up with leads"><label for="ch6">Don't know how to follow up</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch7" value="Clients don't take me seriously"><label for="ch7">Clients don't take me seriously</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch8" value="Tired of answering the same questions"><label for="ch8">Answering the same questions on repeat</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch9" value="Business looks unorganized online"><label for="ch9">Business looks unorganized online</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch10" value="Need a more professional online presence"><label for="ch10">Need a more professional presence</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges" id="ch11" value="Other" onchange="toggleSpecify('ch-other-specify', this)"><label for="ch11">Other</label></div>
+        </div>
+        <div class="specify-wrap" id="ch-other-specify">
+          <input class="q-input" type="text" name="Challenges (Other)" placeholder="Tell us what else is going on...">
+        </div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="q-block">
+        <label class="q-label">Roughly how much revenue do you lose to no-shows or ghosted bookings each month?</label>
+        <div class="radio-grid single-col">
+          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl1" value="Under $200"><label for="rl1">Under $200</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl2" value="$200 – $500"><label for="rl2">$200 – $500</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl3" value="$500 – $1,500"><label for="rl3">$500 – $1,500</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl4" value="$1,500+"><label for="rl4">$1,500+</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl5" value="Not sure"><label for="rl5">Not sure</label></div>
+        </div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="q-block">
+        <label class="q-label">How many clients do you typically book per month?</label>
+        <div class="radio-grid single-col">
+          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc1" value="1 – 5"><label for="mc1">1 – 5</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc2" value="6 – 15"><label for="mc2">6 – 15</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc3" value="16 – 30"><label for="mc3">16 – 30</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc4" value="31 – 50"><label for="mc4">31 – 50</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc5" value="50+"><label for="mc5">50+</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc6" value="Not booking yet — just starting"><label for="mc6">Not booking yet — just starting</label></div>
+        </div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="q-block">
+        <label class="q-label" for="q14">What does success look like for you with NoGhost?</label>
+        <div class="q-helper">What would make this a total win for your business? Be specific — we use this to build your custom proposal.</div>
+        <textarea class="q-input" id="q14" name="Success Definition" placeholder="Paint us a picture of what winning looks like..." required></textarea>
+      </div>
+
+      <div class="form-nav">
+        <button type="button" class="btn-back-form" onclick="goToStep(2)">← Back</button>
+        <button type="button" class="btn-next" onclick="goToStep(4)">Continue → Step 4</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         STEP 4 — Let's Make It Real
+    ══════════════════════════════════════ -->
+    <div class="form-step" id="step-4">
+      <div class="step-header">
+        <div class="step-label">Step 4 of 4</div>
+        <div class="step-title">Let's Make It Real</div>
+        <div class="step-sub">Last step. We just need the basics to reach out and get you on the calendar.</div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="q-block">
+        <label class="q-label">What would you like people to be able to do on your page? (Select all that apply)</label>
+        <div class="radio-grid">
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg1" value="Request an appointment"><label for="pg1">Request an appointment</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg2" value="Schedule a consultation"><label for="pg2">Schedule a consultation</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg3" value="View services"><label for="pg3">View services</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg4" value="View pricing"><label for="pg4">View pricing</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg5" value="Submit an inquiry"><label for="pg5">Submit an inquiry</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg6" value="Join a waitlist"><label for="pg6">Join a waitlist</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg7" value="View travel packages"><label for="pg7">View travel packages</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg8" value="Pay a deposit"><label for="pg8">Pay a deposit</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg9" value="Buy a service / package directly"><label for="pg9">Buy a service / package</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals" id="pg10" value="Other" onchange="toggleSpecify('pg-other-specify', this)"><label for="pg10">Other</label></div>
+        </div>
+        <div class="specify-wrap" id="pg-other-specify">
+          <input class="q-input" type="text" name="Page Goals (Other)" placeholder="What else do you need your page to do?">
+        </div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="q-block">
+        <label class="q-label">When do you want your NoGhost page live?</label>
+        <div class="radio-grid single-col">
+          <div class="radio-opt"><input type="radio" name="Timeline" id="tl1" value="ASAP (within 2 weeks)"><label for="tl1">ASAP — within 2 weeks</label></div>
+          <div class="radio-opt"><input type="radio" name="Timeline" id="tl2" value="Within 30 days"><label for="tl2">Within 30 days</label></div>
+          <div class="radio-opt"><input type="radio" name="Timeline" id="tl3" value="1 – 3 months out"><label for="tl3">1 – 3 months out</label></div>
+          <div class="radio-opt"><input type="radio" name="Timeline" id="tl4" value="Just exploring"><label for="tl4">Just exploring for now</label></div>
+        </div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="q-block">
+        <label class="q-label">What's your budget for getting NoGhost set up?</label>
+        <div class="radio-grid single-col">
+          <div class="radio-opt"><input type="radio" name="Budget" id="bg1" value="Under $500"><label for="bg1">Under $500</label></div>
+          <div class="radio-opt"><input type="radio" name="Budget" id="bg2" value="$500 – $1,000"><label for="bg2">$500 – $1,000</label></div>
+          <div class="radio-opt"><input type="radio" name="Budget" id="bg3" value="$1,000 – $2,500"><label for="bg3">$1,000 – $2,500</label></div>
+          <div class="radio-opt"><input type="radio" name="Budget" id="bg4" value="$2,500+"><label for="bg4">$2,500+</label></div>
+          <div class="radio-opt"><input type="radio" name="Budget" id="bg5" value="Not sure yet — let's talk"><label for="bg5">Not sure yet — let's talk</label></div>
+        </div>
+      </div>
+
+      <div class="q-divider"></div>
+
+      <!-- Q18-21 Contact -->
+      <div class="q-block">
+        <label class="q-label" for="q18">Full Name</label>
+        <input class="q-input" type="text" id="q18" name="Full Name" placeholder="Your full name" required>
+      </div>
+
+      <div class="q-block">
+        <label class="q-label" for="q19">Email Address</label>
+        <input class="q-input" type="email" id="q19" name="email" placeholder="you@email.com" required oninput="document.getElementById('reply-to-hidden').value = this.value">
+      </div>
+
+      <div class="q-block">
+        <label class="q-label" for="q20">Phone Number <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label>
+        <input class="q-input" type="tel" id="q20" name="Phone Number" placeholder="(404) 000-0000">
+      </div>
+
+      <!-- Q21 -->
+      <div class="q-block">
+        <label class="q-label">What's the best way to reach you?</label>
+        <div class="radio-grid">
+          <div class="radio-opt"><input type="radio" name="Best Contact Method" id="bc1" value="Text"><label for="bc1">Text</label></div>
+          <div class="radio-opt"><input type="radio" name="Best Contact Method" id="bc2" value="Phone call"><label for="bc2">Phone call</label></div>
+          <div class="radio-opt"><input type="radio" name="Best Contact Method" id="bc3" value="Email"><label for="bc3">Email</label></div>
+          <div class="radio-opt"><input type="radio" name="Best Contact Method" id="bc4" value="DM" onchange="toggleSpecify('dm-specify', this)"><label for="bc4">DM me</label></div>
+        </div>
+        <div class="specify-wrap" id="dm-specify">
+          <input class="q-input" type="text" name="DM Platform" placeholder="Which platform? (Instagram, Facebook, etc.)">
+        </div>
+      </div>
+
+      <!-- Q22 -->
+      <div class="q-block">
+        <label class="q-label" for="q22">Anything else you'd like us to know? <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label>
+        <textarea class="q-input" id="q22" name="Additional Notes" placeholder="Questions, concerns, anything on your mind..."></textarea>
+      </div>
+
+      <div style="text-align:center; margin-top: 40px;">
+        <button type="submit" class="btn-submit">Reserve My Build Slot ✦</button>
+        <div class="submit-micro">
+          ⚡ We respond within 24 hours — Monday through Friday.<br>
+          Because people shouldn't have to guess how to work with you.
+        </div>
+      </div>
+
+      <div class="form-nav" style="border-top: none; margin-top: 20px; padding-top: 0;">
+        <button type="button" class="btn-back-form" onclick="goToStep(3)">← Back</button>
+        <div></div>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- THANK YOU -->
+  <div class="thankyou" id="thankyou">
+    <div class="ty-icon">✓</div>
+    <h2 class="ty-h2">You're in.<br><em>We'll be in touch.</em></h2>
+    <p class="ty-body">Your intake has been submitted. <strong>We respond within 24 hours, Monday through Friday.</strong> Keep an eye on your inbox — we'll reach out with next steps and your custom proposal.</p>
+    <div class="ty-note">
+      📧 Check your spam folder if you don't hear from us within 24 hours.<br><br>
+      ✦ In the meantime, explore our <a href="adore-braiding-booking.html" style="color:var(--coral);font-weight:700;">live demo pages</a> to see what we build.<br><br>
+      Because at the end of the day, people shouldn't have to guess how to work with you. NoGhost creates a professional booking page that gives every potential client a clear next step.
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">No<span>Ghost</span></div>
+  <div class="footer-sub">Custom booking pages for service-based businesses.</div>
+  <div class="footer-powered">NoGhost · Powered by The Elite Vault</div>
+</footer>
+
+<script>
+// ── STEP NAVIGATION ──
+function goToStep(n) {
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById('step-' + n);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// ── CONDITIONAL SHOW/HIDE ──
+function toggleConditional(id, show) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.classList.toggle('visible', show);
+    // Clear fields when hidden
+    if (!show) {
+      el.querySelectorAll('input, textarea').forEach(f => f.value = '');
+    }
+  }
+}
+
+// ── SPECIFY FIELD SHOW/HIDE (for "Other" options) ──
+function toggleSpecify(id, checkbox) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (checkbox.type === 'checkbox') {
+    el.classList.toggle('visible', checkbox.checked);
+    if (!checkbox.checked) el.querySelectorAll('input').forEach(f => f.value = '');
+  } else {
+    // Radio — show if this radio is selected with value "Other"
+    el.classList.add('visible');
+  }
+}
+
+// ── FORM SUBMIT → THANK YOU ──
+const form = document.getElementById('noghost-form');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const data = new FormData(form);
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('thankyou').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      alert('Something went wrong. Please try again or email us directly.');
+    }
+  } catch(err) {
+    alert('Something went wrong. Please try again.');
+  }
+});
+</script>
+</body>
+</html>
