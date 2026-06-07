@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crown & Co. Natural Hair Studio · Book Your Appointment</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory: #FAFAF7;
+  --ivory-warm: #F5F3EE;
+  --ivory-deep: #EDE9E0;
+  --espresso: #1A1208;
+  --espresso-mid: #2C1F10;
+  --espresso-light: #3E2E1A;
+  --gold: #B8963C;
+  --gold-light: #D4AD5A;
+  --gold-pale: rgba(184,150,60,0.08);
+  --gold-border: rgba(184,150,60,0.18);
+  --black: #0A0A08;
+  --text-dark: #1A1208;
+  --text-mid: #4A3828;
+  --text-soft: #7A6A58;
+  --text-muted: #A89888;
+  --success: #4A7A5A;
+  --border-light: #EAE5DC;
+  --border-mid: #D8D0C4;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Jost', system-ui, sans-serif;
+  --r-xs: 2px;
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ivory);
+  color: var(--text-dark);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--ivory);
+  padding: 0 48px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand { text-align: center; }
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--espresso);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.brand-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.brand-rule::before, .brand-rule::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.brand-sub {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.header-left { display: flex; flex-direction: column; gap: 2px; }
+.header-detail { font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em; font-weight: 300; }
+
+.btn-book-header {
+  background: transparent;
+  color: var(--espresso);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border: 1px solid var(--espresso);
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+
+.btn-book-header:hover {
+  background: var(--espresso);
+  color: var(--ivory);
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--espresso);
+  padding: 100px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184,150,60,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Decorative corner marks */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 48px;
+  right: 48px;
+  bottom: 32px;
+  border: 1px solid rgba(184,150,60,0.08);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 5.5vw, 72px);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+  margin-bottom: 28px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 300;
+}
+
+.hero-text {
+  font-size: 15px;
+  color: rgba(250,250,247,0.45);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 420px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.hero-details {
+  display: flex;
+  gap: 32px;
+}
+
+.hero-detail {
+  border-left: 1px solid rgba(184,150,60,0.3);
+  padding-left: 16px;
+}
+
+.hero-detail-value {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--ivory);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.hero-detail-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,250,247,0.35);
+  margin-top: 2px;
+}
+
+/* STYLIST CARD */
+.stylist-card {
+  background: rgba(250,250,247,0.04);
+  border: 1px solid rgba(184,150,60,0.15);
+  padding: 40px;
+  position: relative;
+}
+
+/* Corner ornaments */
+.stylist-card::before, .stylist-card::after {
+  content: '◈';
+  position: absolute;
+  font-size: 10px;
+  color: rgba(184,150,60,0.4);
+}
+
+.stylist-card::before { top: 12px; right: 12px; }
+.stylist-card::after { bottom: 12px; left: 12px; }
+
+.stylist-monogram {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--gold);
+  font-weight: 300;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.stylist-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--ivory);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.stylist-title {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.stylist-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,150,60,0.3), transparent);
+  margin-bottom: 20px;
+}
+
+.stylist-bio {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: rgba(250,250,247,0.5);
+  line-height: 1.85;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ── MAIN LAYOUT ── */
+.main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 72px 48px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── BOOKING ── */
+.booking-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.booking-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--espresso);
+  letter-spacing: -0.01em;
+  margin-bottom: 40px;
+  line-height: 1.1;
+}
+
+/* ── STEP INDICATOR ── */
+.steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 24px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  padding-bottom: 16px;
+  margin-bottom: -25px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.step.active { border-bottom-color: var(--espresso); }
+.step.done { border-bottom-color: var(--gold); }
+
+.step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  letter-spacing: 0;
+}
+
+.step.active .step-num { background: var(--espresso); color: var(--ivory); }
+.step.done .step-num { background: var(--gold); color: white; }
+.step.inactive .step-num { background: var(--ivory-deep); color: var(--text-muted); }
+
+.step-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.step.active .step-label { color: var(--espresso); }
+.step.done .step-label { color: var(--gold); }
+.step.inactive .step-label { color: var(--text-muted); }
+
+.step-line { flex: 0 0 24px; height: 1px; background: var(--border-mid); margin: 0 4px; }
+
+/* ── PANELS ── */
+.step-panel { display: none; }
+.step-panel.active { display: block; }
+
+/* ── SERVICES ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+  margin-bottom: 32px;
+}
+
+.service-card {
+  background: var(--ivory);
+  padding: 20px 22px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.service-card:hover { background: var(--ivory-warm); }
+
+.service-card.selected { background: var(--espresso); }
+
+.service-card.selected .service-name { color: var(--ivory); }
+.service-card.selected .service-time { color: rgba(250,250,247,0.4); }
+.service-card.selected .service-price { color: var(--gold-light); }
+
+.service-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 18px;
+  height: 18px;
+  background: var(--gold);
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 18px;
+  text-align: center;
+}
+
+.service-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  padding-right: 24px;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.service-meta { display: flex; align-items: center; justify-content: space-between; }
+
+.service-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  font-weight: 400;
+}
+
+.service-price {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--espresso);
+  font-weight: 300;
+}
+
+.service-addon {
+  grid-column: span 2;
+  background: var(--ivory-warm);
+}
+
+.service-addon.selected { background: var(--espresso-mid); }
+
+/* ── CALENDAR ── */
+.calendar-wrap {
+  background: var(--ivory);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.calendar-header {
+  background: var(--espresso);
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-month {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--ivory);
+  letter-spacing: 0.08em;
+}
+
+.cal-nav {
+  background: none;
+  border: 1px solid rgba(250,250,247,0.15);
+  color: rgba(250,250,247,0.6);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.cal-nav:hover { border-color: var(--gold); color: var(--gold); }
+
+.calendar-grid { padding: 20px 28px 24px; }
+
+.cal-days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.cal-day-name {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 6px 0;
+}
+
+.cal-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-date {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--text-dark);
+  letter-spacing: 0;
+}
+
+.cal-date.available {
+  background: var(--gold-pale);
+  color: var(--espresso);
+  font-weight: 500;
+  border: 1px solid var(--gold-border);
+}
+
+.cal-date.available:hover {
+  background: var(--espresso);
+  color: var(--ivory);
+  border-color: var(--espresso);
+}
+
+.cal-date.selected {
+  background: var(--espresso);
+  color: var(--ivory);
+  font-weight: 600;
+}
+
+.cal-date.past { color: var(--border-mid); cursor: default; }
+.cal-date.empty { cursor: default; }
+
+/* ── TIME SLOTS ── */
+.time-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.time-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
+}
+
+.time-label span { color: var(--espresso); font-style: italic; font-family: var(--font-display); font-size: 15px; letter-spacing: 0; text-transform: none; font-weight: 300; }
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.time-slot {
+  background: var(--ivory);
+  border: 1px solid var(--border-mid);
+  padding: 10px 6px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.time-slot:hover { border-color: var(--espresso); }
+
+.time-slot.selected {
+  background: var(--espresso);
+  border-color: var(--espresso);
+  color: var(--ivory);
+}
+
+/* ── CHECKOUT ── */
+.checkout-card {
+  background: var(--ivory);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.checkout-section { padding: 22px 24px; border-bottom: 1px solid var(--border-light); }
+.checkout-section:last-child { border-bottom: none; }
+
+.checkout-section-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.checkout-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-size: 14px;
+}
+
+.checkout-row-label { color: var(--text-soft); font-weight: 300; }
+.checkout-row-value { font-weight: 500; color: var(--text-dark); text-align: right; }
+
+.checkout-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--border-light);
+  margin-top: 8px;
+}
+
+.checkout-total-label { font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mid); }
+
+.checkout-total-value {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--espresso);
+}
+
+.deposit-notice {
+  background: var(--gold-pale);
+  border-left: 2px solid var(--gold);
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.deposit-notice strong { font-weight: 600; color: var(--espresso); }
+
+.form-group { margin-bottom: 14px; }
+
+.form-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--border-mid);
+  background: var(--ivory-warm);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-dark);
+  transition: border-color 0.2s;
+  outline: none;
+  border-radius: 0;
+}
+
+.form-input:focus { border-color: var(--espresso); background: white; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.payment-note {
+  background: var(--ivory-warm);
+  border: 1px solid var(--border-light);
+  padding: 18px;
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.payment-note strong { font-weight: 500; color: var(--espresso); display: block; margin-bottom: 6px; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  width: 100%;
+  background: var(--espresso);
+  color: var(--ivory);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 17px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-primary:hover {
+  background: var(--espresso-light);
+  box-shadow: 0 8px 32px rgba(26,18,8,0.2);
+}
+
+.btn-primary.gold { background: var(--gold); }
+.btn-primary.gold:hover { background: var(--gold-light); }
+
+.btn-back {
+  background: none;
+  border: none;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 14px 0;
+  display: block;
+  width: 100%;
+  text-align: center;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+
+.btn-back:hover { color: var(--text-dark); }
+
+/* ── SELECTED SUMMARY ── */
+.selected-summary {
+  background: var(--ivory-warm);
+  border: 1px solid var(--border-light);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: none;
+}
+
+.selected-summary.visible { display: flex; justify-content: space-between; align-items: center; }
+.sum-name { font-weight: 500; font-size: 14px; color: var(--text-dark); letter-spacing: 0.02em; }
+.sum-meta { font-size: 11px; color: var(--text-muted); margin-top: 3px; letter-spacing: 0.04em; }
+.sum-price { font-family: var(--font-display); font-size: 26px; font-weight: 300; color: var(--espresso); }
+
+/* ── CONFIRMATION ── */
+.confirmation { text-align: center; padding: 56px 32px; }
+
+.conf-icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(74,122,90,0.08);
+  border: 1px solid var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 0 auto 28px;
+}
+
+.confirmation h2 { font-family: var(--font-display); font-size: 42px; font-weight: 300; color: var(--espresso); margin-bottom: 8px; }
+.confirmation-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 36px; letter-spacing: 0.04em; font-weight: 300; }
+
+.conf-details {
+  background: var(--ivory);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.conf-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14px;
+}
+
+.conf-row:last-child { border-bottom: none; }
+.conf-label { color: var(--text-muted); font-weight: 300; }
+.conf-value { font-weight: 500; color: var(--text-dark); }
+
+.conf-note {
+  background: var(--gold-pale);
+  border: 1px solid var(--gold-border);
+  padding: 20px;
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.8;
+  text-align: left;
+  font-weight: 300;
+}
+
+/* ── SIDEBAR ── */
+.sidebar { position: sticky; top: 92px; }
+
+.sidebar-card {
+  background: var(--ivory);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.sidebar-head {
+  background: var(--espresso);
+  padding: 14px 20px;
+}
+
+.sidebar-head-title {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,250,247,0.5);
+  font-weight: 500;
+}
+
+.sidebar-head-name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--ivory);
+  letter-spacing: 0.03em;
+  margin-top: 2px;
+}
+
+.sidebar-body { padding: 18px 20px; }
+
+.policy-item {
+  display: flex;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 13px;
+  color: var(--text-soft);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+.policy-item:last-child { border-bottom: none; }
+.policy-icon { flex-shrink: 0; font-size: 14px; opacity: 0.7; }
+
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.hours-row:last-child { border-bottom: none; }
+.hours-day { color: var(--text-muted); font-weight: 300; letter-spacing: 0.02em; }
+.hours-time { color: var(--text-dark); font-weight: 500; font-size: 12px; }
+
+.location-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-soft);
+  font-weight: 300;
+  margin-top: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--espresso);
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(184,150,60,0.15);
+}
+
+.footer-left { }
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--ivory);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.footer-legal {
+  font-size: 10px;
+  color: rgba(250,250,247,0.25);
+  letter-spacing: 0.08em;
+  font-weight: 300;
+}
+
+.footer-powered {
+  font-size: 10px;
+  color: rgba(184,150,60,0.3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero { padding: 72px 24px; }
+  .header-inner { padding: 0; }
+  .main { grid-template-columns: 1fr; padding: 48px 24px; gap: 40px; }
+  .sidebar { position: static; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-addon { grid-column: span 1; }
+  .time-slots { grid-template-columns: repeat(3, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+  header { padding: 0 24px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+  .hero-details { gap: 20px; }
+  .step-label { display: none; }
+  .step-line { flex: 0 0 12px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-detail">Buckhead, Atlanta · By Appointment Only</div>
+      <div class="header-detail">Tue – Sat · 9 AM – 7 PM</div>
+    </div>
+    <div class="brand">
+      <div class="brand-name">Crown & Co.</div>
+      <div class="brand-rule">
+        <span class="brand-sub">Natural Hair Studio</span>
+      </div>
+    </div>
+    <a href="#booking" class="btn-book-header">Reserve</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Crown & Co. · Buckhead, Atlanta</div>
+      <h1>Your crown<br>deserves<br><em>intention.</em></h1>
+      <p class="hero-text">Select your service, choose your date and time, and reserve your appointment. Everything is handled before you arrive.</p>
+      <div class="hero-details">
+        <div class="hero-detail">
+          <div class="hero-detail-value">10 yrs</div>
+          <div class="hero-detail-label">In Practice</div>
+        </div>
+        <div class="hero-detail">
+          <div class="hero-detail-value">Unhurried</div>
+          <div class="hero-detail-label">Every Appointment</div>
+        </div>
+        <div class="hero-detail">
+          <div class="hero-detail-value">Buckhead</div>
+          <div class="hero-detail-label">Atlanta, GA</div>
+        </div>
+      </div>
+    </div>
+    <div class="stylist-card">
+      <div class="stylist-monogram">IC</div>
+      <div class="stylist-name">Imani Cole</div>
+      <div class="stylist-title">Master Stylist · Founder</div>
+      <div class="stylist-divider"></div>
+      <p class="stylist-bio">"I started Crown & Co. because I believed every woman deserved a stylist who actually listened. After ten years behind the chair in Atlanta I built this studio around one thing... intentional hair care for women who take their crown seriously. Every appointment is unhurried. Every style is done with purpose."</p>
+    </div>
+  </div>
+</section>
+
+<div class="main" id="booking">
+  <div class="booking-flow">
+    <div class="booking-eyebrow">Book Your Appointment</div>
+    <h2>Let's get you scheduled.</h2>
+
+    <div class="steps">
+      <div class="step active" id="step-ind-1"><div class="step-num">1</div><div class="step-label">Service</div></div>
+      <div class="step-line"></div>
+      <div class="step inactive" id="step-ind-2"><div class="step-num">2</div><div class="step-label">Date & Time</div></div>
+      <div class="step-line"></div>
+      <div class="step inactive" id="step-ind-3"><div class="step-num">3</div><div class="step-label">Checkout</div></div>
+      <div class="step-line"></div>
+      <div class="step inactive" id="step-ind-4"><div class="step-num">4</div><div class="step-label">Confirmed</div></div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step-panel active" id="step-1">
+      <div class="services-grid">
+        <div class="service-card" onclick="selectService(this,'Silk Press','2 hrs',95)">
+          <div class="service-name">Silk Press</div>
+          <div class="service-meta"><span class="service-time">2 hrs</span><span class="service-price">$95</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Loc Retwist','2 hrs',110)">
+          <div class="service-name">Loc Retwist</div>
+          <div class="service-meta"><span class="service-time">2 hrs</span><span class="service-price">$110</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Loc Retwist + Style','2.5 hrs',135)">
+          <div class="service-name">Loc Retwist + Style</div>
+          <div class="service-meta"><span class="service-time">2.5 hrs</span><span class="service-price">$135</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Feed-In Braids (6–8)','2 hrs',120)">
+          <div class="service-name">Feed-In Braids (6–8)</div>
+          <div class="service-meta"><span class="service-time">2 hrs</span><span class="service-price">$120</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Knotless Box Braids (Medium)','5 hrs',240)">
+          <div class="service-name">Knotless Box Braids — Medium</div>
+          <div class="service-meta"><span class="service-time">5 hrs</span><span class="service-price">$240</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Knotless Box Braids (Large)','6 hrs',295)">
+          <div class="service-name">Knotless Box Braids — Large</div>
+          <div class="service-meta"><span class="service-time">6 hrs</span><span class="service-price">$295</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Passion Twists','4.5 hrs',225)">
+          <div class="service-name">Passion Twists</div>
+          <div class="service-meta"><span class="service-time">4.5 hrs</span><span class="service-price">$225</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Natural Hair Consultation','30 min',35)">
+          <div class="service-name">Natural Hair Consultation</div>
+          <div class="service-meta"><span class="service-time">30 min</span><span class="service-price">$35</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Deep Conditioning Treatment','45 min',40)">
+          <div class="service-name">Deep Conditioning Treatment</div>
+          <div class="service-meta"><span class="service-time">45 min</span><span class="service-price">$40</span></div>
+        </div>
+        <div class="service-card service-addon" onclick="selectService(this,'Trim Add-On','20 min',25)">
+          <div class="service-name">Trim Add-On <span style="font-size:11px;color:var(--text-muted);font-weight:300;margin-left:8px;">Can be added to any service</span></div>
+          <div class="service-meta"><span class="service-time">20 min</span><span class="service-price">$25</span></div>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="goToStep(2)">Continue to Date & Time →</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-panel" id="step-2">
+      <div class="selected-summary visible" id="summary-2">
+        <div><div class="sum-name" id="sum-name">—</div><div class="sum-meta" id="sum-meta">—</div></div>
+        <div class="sum-price" id="sum-price">—</div>
+      </div>
+      <div class="calendar-wrap">
+        <div class="calendar-header">
+          <button class="cal-nav">‹</button>
+          <div class="calendar-month">July 2025</div>
+          <button class="cal-nav">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="cal-days-header">
+            <div class="cal-day-name">Su</div><div class="cal-day-name">Mo</div><div class="cal-day-name">Tu</div><div class="cal-day-name">We</div><div class="cal-day-name">Th</div><div class="cal-day-name">Fr</div><div class="cal-day-name">Sa</div>
+          </div>
+          <div class="cal-dates">
+            <div class="cal-date empty"></div><div class="cal-date past">1</div><div class="cal-date past">2</div><div class="cal-date past">3</div><div class="cal-date past">4</div><div class="cal-date past">5</div><div class="cal-date past">6</div>
+            <div class="cal-date empty"></div><div class="cal-date past">8</div><div class="cal-date available" onclick="selectDate(this,'Tue, July 9')">9</div><div class="cal-date available" onclick="selectDate(this,'Wed, July 10')">10</div><div class="cal-date available" onclick="selectDate(this,'Thu, July 11')">11</div><div class="cal-date available" onclick="selectDate(this,'Fri, July 12')">12</div><div class="cal-date available" onclick="selectDate(this,'Sat, July 13')">13</div>
+            <div class="cal-date empty"></div><div class="cal-date empty"></div><div class="cal-date available" onclick="selectDate(this,'Tue, July 15')">15</div><div class="cal-date available" onclick="selectDate(this,'Wed, July 16')">16</div><div class="cal-date available" onclick="selectDate(this,'Thu, July 17')">17</div><div class="cal-date available" onclick="selectDate(this,'Fri, July 18')">18</div><div class="cal-date available" onclick="selectDate(this,'Sat, July 19')">19</div>
+            <div class="cal-date empty"></div><div class="cal-date empty"></div><div class="cal-date available" onclick="selectDate(this,'Tue, July 22')">22</div><div class="cal-date available" onclick="selectDate(this,'Wed, July 23')">23</div><div class="cal-date available" onclick="selectDate(this,'Thu, July 24')">24</div><div class="cal-date available" onclick="selectDate(this,'Fri, July 25')">25</div><div class="cal-date available" onclick="selectDate(this,'Sat, July 26')">26</div>
+            <div class="cal-date empty"></div><div class="cal-date empty"></div><div class="cal-date available" onclick="selectDate(this,'Tue, July 29')">29</div><div class="cal-date available" onclick="selectDate(this,'Wed, July 30')">30</div><div class="cal-date available" onclick="selectDate(this,'Thu, July 31')">31</div><div class="cal-date empty"></div><div class="cal-date empty"></div>
+          </div>
+        </div>
+      </div>
+      <div class="time-label">Available Times · <span id="selected-date-label">Select a date above</span></div>
+      <div class="time-slots">
+        <div class="time-slot" onclick="selectTime(this,'9:00 AM')">9:00 AM</div>
+        <div class="time-slot" onclick="selectTime(this,'11:30 AM')">11:30 AM</div>
+        <div class="time-slot" onclick="selectTime(this,'2:00 PM')">2:00 PM</div>
+        <div class="time-slot" onclick="selectTime(this,'4:30 PM')">4:30 PM</div>
+      </div>
+      <button class="btn-primary" onclick="goToStep(3)">Continue to Checkout →</button>
+      <button class="btn-back" onclick="goToStep(1)">← Back to Services</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-panel" id="step-3">
+      <div class="deposit-notice">A <strong>$25 non-refundable deposit</strong> is required to reserve your appointment. This is applied toward your service total. Rescheduling is available with 24 or more hours notice.</div>
+      <div class="checkout-card">
+        <div class="checkout-section">
+          <div class="checkout-section-title">Appointment Summary</div>
+          <div class="checkout-row"><span class="checkout-row-label">Service</span><span class="checkout-row-value" id="co-service">—</span></div>
+          <div class="checkout-row"><span class="checkout-row-label">Date</span><span class="checkout-row-value" id="co-date">—</span></div>
+          <div class="checkout-row"><span class="checkout-row-label">Time</span><span class="checkout-row-value" id="co-time">—</span></div>
+          <div class="checkout-row"><span class="checkout-row-label">Duration</span><span class="checkout-row-value" id="co-duration">—</span></div>
+          <div class="checkout-total"><span class="checkout-total-label">Service Total</span><span class="checkout-total-value" id="co-total">—</span></div>
+        </div>
+        <div class="checkout-section">
+          <div class="checkout-section-title">Due Today</div>
+          <div class="checkout-row"><span class="checkout-row-label">Deposit</span><span class="checkout-row-value" style="font-family:var(--font-display);font-size:22px;font-weight:300;">$25.00</span></div>
+          <div class="checkout-row"><span class="checkout-row-label">Remaining Balance</span><span class="checkout-row-value" id="co-remaining">Due at appointment</span></div>
+        </div>
+        <div class="checkout-section">
+          <div class="checkout-section-title">Your Information</div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="First name"></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Last name"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
+          <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(404) 000-0000"></div>
+        </div>
+        <div class="checkout-section">
+          <div class="checkout-section-title">Payment</div>
+          <div class="payment-note">
+            <strong>Connect your existing payment link here.</strong>
+            Square, Stripe, Cash App, or PayPal — whichever you already use. Your payment link drops right into this step so clients pay their deposit before the appointment is confirmed.
+          </div>
+        </div>
+      </div>
+      <button class="btn-primary gold" onclick="goToStep(4)">Confirm & Pay $25 Deposit →</button>
+      <button class="btn-back" onclick="goToStep(2)">← Back to Date & Time</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-panel" id="step-4">
+      <div class="confirmation">
+        <div class="conf-icon">✓</div>
+        <h2>You're Confirmed.</h2>
+        <p class="confirmation-sub">Thank you for choosing Crown & Co. Natural Hair Studio.</p>
+        <div class="conf-details">
+          <div class="conf-row"><span class="conf-label">Service</span><span class="conf-value" id="conf-service">Silk Press</span></div>
+          <div class="conf-row"><span class="conf-label">Date</span><span class="conf-value" id="conf-date">Tue, July 15</span></div>
+          <div class="conf-row"><span class="conf-label">Time</span><span class="conf-value" id="conf-time">11:30 AM</span></div>
+          <div class="conf-row"><span class="conf-label">Stylist</span><span class="conf-value">Imani Cole</span></div>
+          <div class="conf-row"><span class="conf-label">Location</span><span class="conf-value">Buckhead, Atlanta GA</span></div>
+          <div class="conf-row"><span class="conf-label">Deposit</span><span class="conf-value" style="color:var(--success);">$25.00 received ✓</span></div>
+        </div>
+        <div class="conf-note">A confirmation and appointment reminder have been sent to your inbox. You will receive an automatic reminder 24 hours before your appointment. To reschedule, please contact us at least 24 hours in advance.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-head">
+        <div class="sidebar-head-title">Appointment Policy</div>
+        <div class="sidebar-head-name">Crown & Co.</div>
+      </div>
+      <div class="sidebar-body">
+        <div class="policy-item"><span class="policy-icon">◈</span><span>A <strong>$25 deposit</strong> secures your appointment. Applied to your service total.</span></div>
+        <div class="policy-item"><span class="policy-icon">◈</span><span>Rescheduling is permitted with <strong>24 hours notice</strong>. Late cancellations forfeit the deposit.</span></div>
+        <div class="policy-item"><span class="policy-icon">◈</span><span>Please arrive <strong>5 minutes early</strong>. Late arrivals may result in a shortened service.</span></div>
+        <div class="policy-item"><span class="policy-icon">◈</span><span>Confirmation and reminders are sent <strong>automatically</strong> after booking.</span></div>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-head">
+        <div class="sidebar-head-title">Studio Hours</div>
+        <div class="sidebar-head-name">Tues – Sat</div>
+      </div>
+      <div class="sidebar-body">
+        <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">9:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">9:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">9:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">8:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">8:00 AM – 5:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sun & Mon</span><span class="hours-time">Closed</span></div>
+        <div class="location-line">📍 Buckhead, Atlanta GA · By Appointment Only</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    <div class="footer-brand">Crown & Co. Natural Hair Studio</div>
+    <div class="footer-legal">Buckhead, Atlanta GA · By Appointment Only · © 2025 Crown & Co.</div>
+  </div>
+  <div class="footer-powered">Powered by NoGhost · The Elite Vault</div>
+</footer>
+
+<script>
+let booking = { service: '', duration: '', price: 0, date: '', time: '' };
+function selectService(el, name, duration, price) {
+  document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  booking.service = name; booking.duration = duration; booking.price = price;
+}
+function selectDate(el, dateStr) {
+  document.querySelectorAll('.cal-date').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  booking.date = dateStr;
+  document.getElementById('selected-date-label').textContent = dateStr;
+}
+function selectTime(el, time) {
+  document.querySelectorAll('.time-slot').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+  booking.time = time;
+}
+function goToStep(n) {
+  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+  for (let i = 1; i <= 4; i++) {
+    const ind = document.getElementById('step-ind-' + i);
+    ind.className = 'step ' + (i < n ? 'done' : i === n ? 'active' : 'inactive');
+  }
+  if (n === 2 && booking.service) {
+    document.getElementById('sum-name').textContent = booking.service;
+    document.getElementById('sum-meta').textContent = booking.duration;
+    document.getElementById('sum-price').textContent = '$' + booking.price;
+  }
+  if (n === 3) {
+    document.getElementById('co-service').textContent = booking.service || '—';
+    document.getElementById('co-date').textContent = booking.date || '—';
+    document.getElementById('co-time').textContent = booking.time || '—';
+    document.getElementById('co-duration').textContent = booking.duration || '—';
+    document.getElementById('co-total').textContent = booking.price ? '$' + booking.price + '.00' : '—';
+    document.getElementById('co-remaining').textContent = booking.price ? '$' + (booking.price - 25) + '.00 due at appointment' : '—';
+  }
+  if (n === 4) {
+    document.getElementById('conf-service').textContent = booking.service || 'Silk Press';
+    document.getElementById('conf-date').textContent = booking.date || 'Tue, July 15';
+    document.getElementById('conf-time').textContent = booking.time || '11:30 AM';
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

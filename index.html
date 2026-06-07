@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NoGhost · Done-for-you booking pages that get clients confirmed.</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0D0D0D; color: #F5F0E8; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 64px 24px; }
+
+  .hero { text-align: center; max-width: 680px; margin-bottom: 64px; }
+
+  .noghost-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(72px, 14vw, 120px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: #C9A84C;
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .hero-headline {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 400;
+    color: rgba(245,240,232,0.7);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(201,168,76,0.4);
+    margin: 28px auto;
+  }
+
+  .sub {
+    font-size: 14px;
+    color: rgba(245,240,232,0.35);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .demos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 780px;
+    width: 100%;
+  }
+
+  .demo-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .demo-card:hover { transform: translateY(-4px); box-shadow: 0 24px 48px rgba(0,0,0,0.5); }
+  .demo-card.dark { background: #1C1008; border-color: rgba(201,168,76,0.2); }
+  .demo-card.warm { background: #5C2E3D; border-color: rgba(245,166,35,0.25); }
+
+  .card-top { padding: 28px 28px 20px; }
+
+  .card-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .dark .card-badge { color: rgba(201,168,76,0.5); }
+  .warm .card-badge { color: rgba(245,166,35,0.6); }
+
+  .card-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .dark .card-name { color: #C9A84C; }
+  .warm .card-name { color: #FFF6E8; }
+
+  .card-desc { font-size: 13px; line-height: 1.65; }
+  .dark .card-desc { color: rgba(250,246,239,0.45); }
+  .warm .card-desc { color: rgba(255,246,232,0.5); }
+
+  .card-footer {
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .dark .card-footer { color: #C9A84C; }
+  .warm .card-footer { color: #F5A623; }
+
+  .powered {
+    margin-top: 56px;
+    font-size: 11px;
+    color: rgba(245,240,232,0.18);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .demos { grid-template-columns: 1fr; }
+    .noghost-name { font-size: 80px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <span class="noghost-name">NoGhost</span>
+    <p class="hero-headline">Done-for-you booking pages that get clients confirmed.</p>
+    <div class="divider"></div>
+    <p class="sub">Live Demo Pages</p>
+  </div>
+
+  <div class="demos">
+    <a href="crown-and-co-booking.html" class="demo-card dark">
+      <div class="card-top">
+        <div class="card-badge">Demo 01 · Dark Luxury</div>
+        <div class="card-name">Crown & Co. Natural Hair Studio</div>
+        <p class="card-desc">Espresso and gold. Buckhead Atlanta. Silk presses, locs, knotless braids. Elevated and intentional.</p>
+      </div>
+      <div class="card-footer"><span>View Demo</span><span>→</span></div>
+    </a>
+    <a href="adore-braiding-booking.html" class="demo-card warm">
+      <div class="card-top">
+        <div class="card-badge">Demo 02 · Warm & Vibrant</div>
+        <div class="card-name">Adore Braiding Studio</div>
+        <p class="card-desc">Mango and mauve. Southwest Atlanta. Knotless braids, butterfly locs, passion twists. Warm and welcoming.</p>
+      </div>
+      <div class="card-footer"><span>View Demo</span><span>→</span></div>
+    </a>
+  </div>
+
+  <div class="powered">NoGhost by The Elite Vault</div>
+
+</body>
+</html>
