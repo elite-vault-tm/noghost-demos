@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxe & Co. Events · Book Your Consultation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fuchsia: #D4457A;
+  --fuchsia-deep: #B0325F;
+  --fuchsia-pale: rgba(212,69,122,0.08);
+  --fuchsia-border: rgba(212,69,122,0.2);
+  --gold: #E8B84B;
+  --gold-pale: rgba(232,184,75,0.1);
+  --gold-border: rgba(232,184,75,0.25);
+  --emerald: #2E8B6E;
+  --emerald-pale: rgba(46,139,110,0.1);
+  --bg: #FFF9FC;
+  --bg-warm: #FFF0F5;
+  --bg-card: #FFFFFF;
+  --text-dark: #1A0A12;
+  --text-mid: #5C3048;
+  --text-soft: #9C6080;
+  --text-muted: #C4A0B4;
+  --border: #F0D8E8;
+  --border-mid: #E4C4D8;
+  --success: #2E8B6E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-ui: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --r-sm: 8px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+  --shadow-sm: 0 4px 16px rgba(212,69,122,0.07);
+  --shadow-md: 0 8px 32px rgba(212,69,122,0.12);
+  --shadow-lg: 0 20px 56px rgba(212,69,122,0.16);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text-dark); font-family: var(--font-ui); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+/* ── ANNOUNCEMENT BAR ── */
+.announcement-bar {
+  background: var(--fuchsia);
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.announcement-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ann-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.ann-dot { width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+.ann-highlight { color: var(--gold); font-weight: 700; }
+
+@media (max-width: 600px) {
+  .ann-item:not(:first-child), .ann-dot { display: none; }
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--bg-card);
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--fuchsia);
+  letter-spacing: -0.01em;
+}
+
+.brand-sub {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+.btn-book-header {
+  background: var(--fuchsia);
+  color: white;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 10px 22px;
+  border-radius: var(--r-pill);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-book-header:hover {
+  background: var(--fuchsia-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(212,69,122,0.3);
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--bg-card);
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(232,184,75,0.12) 0%, rgba(212,69,122,0.06) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -40px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212,69,122,0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--fuchsia-pale);
+  border: 1px solid var(--fuchsia-border);
+  color: var(--fuchsia);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  margin-bottom: 20px;
+}
+
+.hero-tag::before { content: '✦'; font-size: 9px; }
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 62px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+h1 em { font-style: italic; color: var(--fuchsia); }
+
+.hero-text {
+  font-size: 16px;
+  color: var(--text-soft);
+  line-height: 1.75;
+  margin-bottom: 28px;
+  max-width: 400px;
+}
+
+.hero-trust {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-mid);
+  font-weight: 500;
+}
+
+.trust-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* PHOTO COLLAGE */
+.hero-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+}
+
+.photo-slot {
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-slot:first-child {
+  grid-row: span 2;
+  border-radius: var(--r-xl);
+  min-height: 300px;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  padding: 16px;
+  min-height: inherit;
+}
+
+.photo-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(255,255,255,0.92);
+  color: var(--fuchsia);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── PLANNER STRIP ── */
+.planner-strip {
+  background: var(--fuchsia-deep);
+  padding: 24px 40px;
+}
+
+.planner-strip-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.planner-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--fuchsia));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+
+.planner-name { font-family: var(--font-display); font-size: 18px; color: white; line-height: 1.1; }
+.planner-title { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 600; letter-spacing: 0.06em; margin-top: 2px; text-transform: uppercase; }
+.planner-quote { font-size: 14px; color: rgba(255,255,255,0.7); font-style: italic; font-family: var(--font-display); max-width: 520px; line-height: 1.6; border-left: 2px solid var(--gold); padding-left: 16px; margin-left: auto; }
+
+/* ── MAIN ── */
+.main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 64px 40px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 44px;
+  align-items: start;
+}
+
+/* ── BOOKING HEADER ── */
+.booking-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fuchsia);
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+/* ── STEPS ── */
+.steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 36px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 8px;
+}
+
+.step { display: flex; align-items: center; gap: 8px; flex: 1; padding: 8px 12px; border-radius: var(--r-pill); transition: all 0.3s; }
+.step.active { background: var(--fuchsia); }
+.step.done { background: var(--fuchsia-pale); }
+
+.step-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.step.active .step-num { background: rgba(255,255,255,0.25); color: white; }
+.step.done .step-num { background: var(--fuchsia); color: white; }
+.step.inactive .step-num { background: var(--border); color: var(--text-muted); }
+
+.step-label { font-size: 12px; font-weight: 700; white-space: nowrap; }
+.step.active .step-label { color: white; }
+.step.done .step-label { color: var(--fuchsia); }
+.step.inactive .step-label { color: var(--text-muted); }
+
+/* ── PANELS ── */
+.step-panel { display: none; }
+.step-panel.active { display: block; }
+
+/* ── SERVICE CARDS ── */
+.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
+
+.service-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.service-card:hover { border-color: var(--fuchsia); background: var(--fuchsia-pale); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.service-card.selected { border-color: var(--fuchsia); background: var(--fuchsia-pale); }
+.service-card.selected::after { content: '✓'; position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; background: var(--fuchsia); color: white; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; line-height: 20px; text-align: center; }
+.service-card.full-width { grid-column: span 2; background: rgba(232,184,75,0.06); border-color: var(--gold-border); border-style: dashed; }
+
+.service-name { font-weight: 700; font-size: 14px; color: var(--text-dark); margin-bottom: 8px; padding-right: 24px; line-height: 1.3; }
+.service-meta { display: flex; align-items: center; justify-content: space-between; }
+.service-time { font-size: 12px; color: var(--text-soft); }
+.service-price { font-family: var(--font-display); font-size: 20px; color: var(--fuchsia); }
+
+/* ── CALENDAR ── */
+.calendar-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+.calendar-header { background: var(--fuchsia-deep); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+.calendar-month { font-family: var(--font-display); font-size: 20px; color: white; }
+.cal-nav { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.cal-nav:hover { background: var(--gold); color: var(--text-dark); }
+.calendar-grid { padding: 16px 20px 20px; }
+.cal-days-header { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 6px; }
+.cal-day-name { text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding: 6px 0; }
+.cal-dates { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.cal-date { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: var(--r-sm); font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.15s; color: var(--text-dark); }
+.cal-date.available { background: var(--fuchsia-pale); color: var(--fuchsia-deep); font-weight: 700; border: 1px solid var(--fuchsia-border); }
+.cal-date.available:hover { background: var(--fuchsia); color: white; transform: scale(1.08); }
+.cal-date.selected { background: var(--fuchsia); color: white; font-weight: 700; transform: scale(1.08); }
+.cal-date.past { color: var(--border-mid); cursor: default; }
+.cal-date.empty { cursor: default; }
+
+/* ── TIME SLOTS ── */
+.time-label { font-size: 13px; font-weight: 700; color: var(--text-mid); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.time-label span { color: var(--fuchsia); font-family: var(--font-display); font-style: italic; }
+.time-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 28px; }
+.time-slot { background: var(--bg-card); border: 2px solid var(--border); border-radius: var(--r-md); padding: 10px 6px; text-align: center; font-size: 13px; font-weight: 700; color: var(--text-dark); cursor: pointer; transition: all 0.15s; }
+.time-slot:hover { border-color: var(--fuchsia); color: var(--fuchsia); transform: translateY(-1px); }
+.time-slot.selected { background: var(--fuchsia); border-color: var(--fuchsia); color: white; }
+
+/* ── CHECKOUT ── */
+.checkout-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+.checkout-section { padding: 22px 24px; border-bottom: 1px solid var(--border); }
+.checkout-section:last-child { border-bottom: none; }
+.checkout-section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+.checkout-row { display: flex; justify-content: space-between; padding: 7px 0; font-size: 14px; }
+.checkout-row-label { color: var(--text-soft); }
+.checkout-row-value { font-weight: 700; color: var(--text-dark); text-align: right; }
+.checkout-total { display: flex; justify-content: space-between; align-items: center; padding: 14px 0 0; border-top: 2px solid var(--border); margin-top: 8px; }
+.checkout-total-label { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+.checkout-total-value { font-family: var(--font-display); font-size: 30px; color: var(--fuchsia); }
+
+.deposit-banner { background: var(--fuchsia-pale); border-left: 4px solid var(--fuchsia); border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 12px 16px; font-size: 13px; color: var(--text-mid); line-height: 1.5; margin-bottom: 16px; font-weight: 500; }
+
+.form-group { margin-bottom: 14px; }
+.form-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 6px; }
+.form-input { width: 100%; padding: 12px 14px; border: 2px solid var(--border); border-radius: var(--r-sm); font-family: var(--font-ui); font-size: 14px; color: var(--text-dark); background: var(--bg); outline: none; transition: border-color 0.2s; }
+.form-input:focus { border-color: var(--fuchsia); background: white; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.payment-note { background: rgba(232,184,75,0.08); border: 2px dashed var(--gold-border); border-radius: var(--r-md); padding: 16px; font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+.payment-note strong { color: var(--fuchsia-deep); display: block; margin-bottom: 6px; font-size: 15px; }
+
+/* ── BUTTONS ── */
+.btn-primary { width: 100%; background: var(--fuchsia-deep); color: white; font-family: var(--font-ui); font-weight: 700; font-size: 15px; padding: 16px; border-radius: var(--r-pill); border: none; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.btn-primary:hover { background: var(--fuchsia); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,69,122,0.3); }
+.btn-primary.gold { background: var(--gold); color: var(--text-dark); }
+.btn-primary.gold:hover { box-shadow: 0 8px 24px rgba(232,184,75,0.3); }
+.btn-back { background: none; border: none; font-family: var(--font-ui); font-size: 13px; color: var(--text-muted); cursor: pointer; padding: 12px 0; display: block; width: 100%; text-align: center; transition: color 0.2s; font-weight: 600; }
+.btn-back:hover { color: var(--fuchsia); }
+
+/* ── SELECTED SUMMARY ── */
+.selected-summary { background: var(--fuchsia-pale); border: 2px solid var(--fuchsia-border); border-radius: var(--r-md); padding: 14px 18px; margin-bottom: 20px; display: none; }
+.selected-summary.visible { display: flex; justify-content: space-between; align-items: center; }
+.sum-name { font-weight: 700; font-size: 15px; color: var(--text-dark); }
+.sum-meta { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
+.sum-price { font-family: var(--font-display); font-size: 24px; color: var(--fuchsia); }
+
+/* ── CONFIRMATION ── */
+.confirmation { text-align: center; padding: 48px 24px; }
+.conf-icon { width: 80px; height: 80px; background: var(--emerald-pale); border: 3px solid var(--emerald); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; margin: 0 auto 24px; }
+.confirmation h2 { font-family: var(--font-display); font-size: 36px; color: var(--text-dark); margin-bottom: 8px; }
+.confirmation-sub { font-size: 15px; color: var(--text-soft); margin-bottom: 32px; }
+.conf-details { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; text-align: left; margin-bottom: 20px; }
+.conf-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; border-bottom: 1px solid var(--border); font-size: 14px; }
+.conf-row:last-child { border-bottom: none; }
+.conf-label { color: var(--text-soft); }
+.conf-value { font-weight: 700; color: var(--text-dark); }
+.conf-note { background: var(--fuchsia-pale); border-radius: var(--r-md); padding: 18px; font-size: 13px; color: var(--text-mid); line-height: 1.7; text-align: left; }
+
+/* ── SIDEBAR ── */
+.sidebar { position: sticky; top: 90px; }
+.sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 16px; box-shadow: var(--shadow-sm); }
+.sidebar-head { background: var(--fuchsia-deep); padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
+.sidebar-head-title { font-family: var(--font-display); font-size: 17px; color: white; }
+.sidebar-body { padding: 18px 20px; }
+.policy-item { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+.policy-item:last-child { border-bottom: none; }
+.policy-icon { flex-shrink: 0; font-size: 15px; }
+.hours-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 13px; border-bottom: 1px solid var(--border); }
+.hours-row:last-child { border-bottom: none; }
+.hours-day { color: var(--text-soft); font-weight: 600; }
+.hours-time { color: var(--text-dark); font-weight: 700; font-size: 12px; }
+.location-pill { display: flex; align-items: center; gap: 8px; background: var(--fuchsia-pale); border-radius: var(--r-sm); padding: 10px 14px; font-size: 13px; color: var(--text-mid); font-weight: 600; margin-top: 12px; }
+
+/* ── FOOTER ── */
+footer { background: var(--text-dark); padding: 28px 40px; text-align: center; border-top: 3px solid var(--gold); }
+.footer-brand { font-family: var(--font-display); font-size: 20px; color: white; margin-bottom: 6px; }
+.footer-legal { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+.footer-powered { font-size: 11px; color: rgba(232,184,75,0.45); margin-top: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero { padding: 60px 24px; }
+  .main { grid-template-columns: 1fr; padding: 40px 24px; }
+  .sidebar { position: static; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card.full-width { grid-column: span 1; }
+  .form-row { grid-template-columns: 1fr; }
+  header { padding: 0 24px; }
+  .planner-strip { padding: 20px 24px; }
+  .planner-quote { display: none; }
+  .hero-right { min-height: 200px; }
+}
+</style>
+</head>
+<body>
+
+<div class="announcement-bar">
+  <div class="announcement-inner">
+    <div class="ann-item">🎉 <span><span class="ann-highlight">Summer bookings filling fast</span> — secure your date now</span></div>
+    <div class="ann-dot"></div>
+    <div class="ann-item">🎒 <span><span class="ann-highlight">Back-to-school parties</span> — book your celebration early</span></div>
+    <div class="ann-dot"></div>
+    <div class="ann-item">✨ <span>Consultations available now — <span class="ann-highlight">limited spots</span></span></div>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="brand-name">Luxe & Co. Events</div>
+      <div class="brand-sub">Atlanta, GA · Full-Service Event Planning</div>
+    </div>
+    <a href="#booking" class="btn-book-header">Book Now</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Now Booking · Atlanta, GA</div>
+      <h1>Your celebration<br>deserves to be<br><em>unforgettable.</em></h1>
+      <p class="hero-text">Tell us what you're planning, pick a time, and let's bring your vision to life. No stress. No guesswork. Just a party people actually talk about.</p>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="trust-dot"></div>Deposit holds your date</div>
+        <div class="trust-item"><div class="trust-dot"></div>Instant confirmation</div>
+        <div class="trust-item"><div class="trust-dot"></div>Auto reminders</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="photo-slot" style="background: linear-gradient(135deg, #D4457A, #9B2D5A);">
+        <div class="photo-placeholder" style="color: rgba(255,255,255,0.6);">
+          <div style="font-size: 36px;">🎊</div>
+          <div>Event photo</div>
+        </div>
+        <div class="photo-label">Luxury Events</div>
+      </div>
+      <div class="photo-slot" style="background: linear-gradient(135deg, #E8B84B, #D4457A);">
+        <div class="photo-placeholder" style="color: rgba(255,255,255,0.6);">
+          <div style="font-size: 28px;">🎂</div>
+          <div>Birthday photo</div>
+        </div>
+        <div class="photo-label">Birthday Parties</div>
+      </div>
+      <div class="photo-slot" style="background: linear-gradient(135deg, #9B2D5A, #D4457A);">
+        <div class="photo-placeholder" style="color: rgba(255,255,255,0.6);">
+          <div style="font-size: 28px;">🥂</div>
+          <div>Event photo</div>
+        </div>
+        <div class="photo-label">Baby Showers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="planner-strip">
+  <div class="planner-strip-inner">
+    <div class="planner-avatar">💐</div>
+    <div>
+      <div class="planner-name">Simone Reeves</div>
+      <div class="planner-title">Lead Planner & Founder</div>
+    </div>
+    <div class="planner-quote">"Every celebration tells a story. My job is to make sure yours is one people are still talking about years from now."</div>
+  </div>
+</div>
+
+<div class="main" id="booking">
+  <div class="booking-flow">
+    <div class="booking-tag">Book Your Consultation</div>
+    <h2>Let's plan your event.</h2>
+
+    <div class="steps">
+      <div class="step active" id="step-ind-1"><div class="step-num">1</div><div class="step-label">Service</div></div>
+      <div class="step inactive" id="step-ind-2"><div class="step-num">2</div><div class="step-label">Date & Time</div></div>
+      <div class="step inactive" id="step-ind-3"><div class="step-num">3</div><div class="step-label">Details</div></div>
+      <div class="step inactive" id="step-ind-4"><div class="step-num">4</div><div class="step-label">Confirmed</div></div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="step-panel active" id="step-1">
+      <div class="services-grid">
+        <div class="service-card" onclick="selectService(this,'Full Event Planning','Ongoing',2500)">
+          <div class="service-name">Full Event Planning</div>
+          <div class="service-meta"><span class="service-time">End-to-end coordination</span><span class="service-price">From $2,500</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Day-Of Coordination','1 day',850)">
+          <div class="service-name">Day-Of Coordination</div>
+          <div class="service-meta"><span class="service-time">You plan, we execute</span><span class="service-price">From $850</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Birthday Party Package','4–6 hrs',1200)">
+          <div class="service-name">Birthday Party Package</div>
+          <div class="service-meta"><span class="service-time">4–6 hrs</span><span class="service-price">From $1,200</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Baby Shower Package','3–5 hrs',950)">
+          <div class="service-name">Baby Shower Package</div>
+          <div class="service-meta"><span class="service-time">3–5 hrs</span><span class="service-price">From $950</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Brunch & Sip Experience','2–3 hrs',750)">
+          <div class="service-name">Brunch & Sip Experience</div>
+          <div class="service-meta"><span class="service-time">2–3 hrs</span><span class="service-price">From $750</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Corporate Event Planning','Custom',3500)">
+          <div class="service-name">Corporate Event Planning</div>
+          <div class="service-meta"><span class="service-time">Custom timeline</span><span class="service-price">From $3,500</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Micro Wedding (50 guests or less)','Full day',4500)">
+          <div class="service-name">Micro Wedding</div>
+          <div class="service-meta"><span class="service-time">50 guests or less</span><span class="service-price">From $4,500</span></div>
+        </div>
+        <div class="service-card" onclick="selectService(this,'Initial Planning Consultation','60 min',150)">
+          <div class="service-name">Planning Consultation</div>
+          <div class="service-meta"><span class="service-time">60 min · Applied to package</span><span class="service-price">$150</span></div>
+        </div>
+        <div class="service-card full-width" onclick="selectService(this,'Décor & Styling Only','Custom',600)">
+          <div class="service-name">✨ Décor & Styling Only <span style="font-size:11px;color:var(--text-muted);font-weight:400;margin-left:8px;">· You handle logistics, we handle the look</span></div>
+          <div class="service-meta"><span class="service-time">Custom timeline</span><span class="service-price">From $600</span></div>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="goToStep(2)">Continue to Date & Time →</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-panel" id="step-2">
+      <div class="selected-summary visible" id="summary-2">
+        <div><div class="sum-name" id="sum-name">—</div><div class="sum-meta" id="sum-meta">—</div></div>
+        <div class="sum-price" id="sum-price">—</div>
+      </div>
+      <div class="calendar-wrap">
+        <div class="calendar-header">
+          <button class="cal-nav">‹</button>
+          <div class="calendar-month">July 2025</div>
+          <button class="cal-nav">›</button>
+        </div>
+        <div class="calendar-grid">
+          <div class="cal-days-header">
+            <div class="cal-day-name">Su</div><div class="cal-day-name">Mo</div><div class="cal-day-name">Tu</div><div class="cal-day-name">We</div><div class="cal-day-name">Th</div><div class="cal-day-name">Fr</div><div class="cal-day-name">Sa</div>
+          </div>
+          <div class="cal-dates">
+            <div class="cal-date empty"></div><div class="cal-date past">1</div><div class="cal-date past">2</div><div class="cal-date past">3</div><div class="cal-date past">4</div><div class="cal-date past">5</div><div class="cal-date past">6</div>
+            <div class="cal-date available" onclick="selectDate(this,'Sun, July 7')">7</div><div class="cal-date available" onclick="selectDate(this,'Mon, July 8')">8</div><div class="cal-date available" onclick="selectDate(this,'Tue, July 9')">9</div><div class="cal-date available" onclick="selectDate(this,'Wed, July 10')">10</div><div class="cal-date available" onclick="selectDate(this,'Thu, July 11')">11</div><div class="cal-date available" onclick="selectDate(this,'Fri, July 12')">12</div><div class="cal-date available" onclick="selectDate(this,'Sat, July 13')">13</div>
+            <div class="cal-date empty"></div><div class="cal-date available" onclick="selectDate(this,'Mon, July 14')">14</div><div class="cal-date available" onclick="selectDate(this,'Tue, July 15')">15</div><div class="cal-date available" onclick="selectDate(this,'Wed, July 16')">16</div><div class="cal-date available" onclick="selectDate(this,'Thu, July 17')">17</div><div class="cal-date available" onclick="selectDate(this,'Fri, July 18')">18</div><div class="cal-date available" onclick="selectDate(this,'Sat, July 19')">19</div>
+            <div class="cal-date empty"></div><div class="cal-date available" onclick="selectDate(this,'Mon, July 21')">21</div><div class="cal-date available" onclick="selectDate(this,'Tue, July 22')">22</div><div class="cal-date available" onclick="selectDate(this,'Wed, July 23')">23</div><div class="cal-date available" onclick="selectDate(this,'Thu, July 24')">24</div><div class="cal-date available" onclick="selectDate(this,'Fri, July 25')">25</div><div class="cal-date available" onclick="selectDate(this,'Sat, July 26')">26</div>
+            <div class="cal-date empty"></div><div class="cal-date available" onclick="selectDate(this,'Mon, July 28')">28</div><div class="cal-date available" onclick="selectDate(this,'Tue, July 29')">29</div><div class="cal-date available" onclick="selectDate(this,'Wed, July 30')">30</div><div class="cal-date available" onclick="selectDate(this,'Thu, July 31')">31</div><div class="cal-date empty"></div><div class="cal-date empty"></div>
+          </div>
+        </div>
+      </div>
+      <div class="time-label">Available Times · <span id="selected-date-label">Select a date above</span></div>
+      <div class="time-slots">
+        <div class="time-slot" onclick="selectTime(this,'10:00 AM')">10:00 AM</div>
+        <div class="time-slot" onclick="selectTime(this,'12:00 PM')">12:00 PM</div>
+        <div class="time-slot" onclick="selectTime(this,'2:00 PM')">2:00 PM</div>
+        <div class="time-slot" onclick="selectTime(this,'4:00 PM')">4:00 PM</div>
+        <div class="time-slot" onclick="selectTime(this,'6:00 PM')">6:00 PM</div>
+      </div>
+      <button class="btn-primary" onclick="goToStep(3)">Continue to Details →</button>
+      <button class="btn-back" onclick="goToStep(1)">← Back to Services</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-panel" id="step-3">
+      <div class="deposit-banner">💳 A <strong>$150 consultation deposit</strong> is required to hold your date. Applied toward your package total.</div>
+      <div class="checkout-card">
+        <div class="checkout-section">
+          <div class="checkout-section-title">Booking Summary</div>
+          <div class="checkout-row"><span class="checkout-row-label">Service</span><span class="checkout-row-value" id="co-service">—</span></div>
+          <div class="checkout-row"><span class="checkout-row-label">Date</span><span class="checkout-row-value" id="co-date">—</span></div>
+          <div class="checkout-row"><span class="checkout-row-label">Time</span><span class="checkout-row-value" id="co-time">—</span></div>
+          <div class="checkout-row"><span class="checkout-row-label">Duration</span><span class="checkout-row-value" id="co-duration">—</span></div>
+          <div class="checkout-total"><span class="checkout-total-label">Starting From</span><span class="checkout-total-value" id="co-total">—</span></div>
+        </div>
+        <div class="checkout-section">
+          <div class="checkout-section-title">Due Today</div>
+          <div class="checkout-row"><span class="checkout-row-label">Consultation Deposit</span><span class="checkout-row-value" style="color:var(--fuchsia);font-size:20px;font-family:var(--font-display);">$150.00</span></div>
+          <div class="checkout-row"><span class="checkout-row-label">Remaining Balance</span><span class="checkout-row-value">Quoted after consultation</span></div>
+        </div>
+        <div class="checkout-section">
+          <div class="checkout-section-title">Your Information</div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="First name"></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Last name"></div>
+          </div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
+          <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(404) 000-0000"></div>
+          <div class="form-group"><label class="form-label">Event Date (if known)</label><input class="form-input" type="text" placeholder="MM / DD / YYYY or TBD"></div>
+          <div class="form-group"><label class="form-label">Tell us about your event</label><textarea class="form-input" rows="3" placeholder="Guest count, theme, venue ideas, anything you'd like us to know..."></textarea></div>
+        </div>
+        <div class="checkout-section">
+          <div class="checkout-section-title">Payment</div>
+          <div class="payment-note">
+            <strong>💳 Connect your payment link here.</strong>
+            Square, Stripe, Cash App, or PayPal — whichever you already use. Your link drops right into this step so clients can pay their deposit before the consultation is confirmed.
+          </div>
+        </div>
+      </div>
+      <button class="btn-primary gold" onclick="goToStep(4)">Confirm & Pay $150 Deposit →</button>
+      <button class="btn-back" onclick="goToStep(2)">← Back to Date & Time</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-panel" id="step-4">
+      <div class="confirmation">
+        <div class="conf-icon">✓</div>
+        <h2>You're Confirmed! 🎉</h2>
+        <p class="confirmation-sub">Thank you for choosing Luxe & Co. Events. We can't wait to bring your vision to life.</p>
+        <div class="conf-details">
+          <div class="conf-row"><span class="conf-label">Service</span><span class="conf-value" id="conf-service">Full Event Planning</span></div>
+          <div class="conf-row"><span class="conf-label">Date</span><span class="conf-value" id="conf-date">Sat, July 19</span></div>
+          <div class="conf-row"><span class="conf-label">Time</span><span class="conf-value" id="conf-time">2:00 PM</span></div>
+          <div class="conf-row"><span class="conf-label">Planner</span><span class="conf-value">Simone Reeves</span></div>
+          <div class="conf-row"><span class="conf-label">Location</span><span class="conf-value">Atlanta, GA</span></div>
+          <div class="conf-row"><span class="conf-label">Deposit Paid</span><span class="conf-value" style="color:var(--success);">$150.00 ✓</span></div>
+        </div>
+        <div class="conf-note">📧 A confirmation email has been sent to your inbox.<br><br>⏰ We will reach out within 24 hours to begin planning your event.<br><br>✨ Come ready to share your vision, inspiration, and any ideas you have in mind.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-head"><div class="sidebar-head-title">Booking Policy</div></div>
+      <div class="sidebar-body">
+        <div class="policy-item"><span class="policy-icon">💳</span><span>A <strong>$150 consultation deposit</strong> holds your date and is applied to your package.</span></div>
+        <div class="policy-item"><span class="policy-icon">🔁</span><span>Reschedule with <strong>48+ hours notice</strong>. Cancellations forfeit the deposit.</span></div>
+        <div class="policy-item"><span class="policy-icon">📋</span><span>Final pricing is quoted after your consultation based on event scope and date.</span></div>
+        <div class="policy-item"><span class="policy-icon">📧</span><span>Confirmation sent automatically. We follow up within <strong>24 hours</strong> to begin planning.</span></div>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-head"><div class="sidebar-head-title">Consultation Hours</div></div>
+      <div class="sidebar-body">
+        <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">10:00 AM – 5:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">10:00 AM – 5:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">10:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">10:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">10:00 AM – 4:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">By Appointment</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">Closed</span></div>
+        <div class="location-pill">📍 Atlanta, GA · In-Person & Virtual</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">Luxe & Co. Events</div>
+  <div class="footer-legal">Atlanta, GA · Full-Service Event Planning · © 2025 Luxe & Co. Events</div>
+  <div class="footer-powered">Powered by NoGhost · The Elite Vault</div>
+</footer>
+
+<script>
+let booking = { service: '', duration: '', price: 0, date: '', time: '' };
+function selectService(el, name, duration, price) {
+  document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  booking.service = name; booking.duration = duration; booking.price = price;
+}
+function selectDate(el, dateStr) {
+  document.querySelectorAll('.cal-date').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  booking.date = dateStr;
+  document.getElementById('selected-date-label').textContent = dateStr;
+}
+function selectTime(el, time) {
+  document.querySelectorAll('.time-slot').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+  booking.time = time;
+}
+function goToStep(n) {
+  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+  for (let i = 1; i <= 4; i++) {
+    const ind = document.getElementById('step-ind-' + i);
+    ind.className = 'step ' + (i < n ? 'done' : i === n ? 'active' : 'inactive');
+  }
+  if (n === 2 && booking.service) {
+    document.getElementById('sum-name').textContent = booking.service;
+    document.getElementById('sum-meta').textContent = booking.duration;
+    document.getElementById('sum-price').textContent = booking.price ? 'From $' + booking.price.toLocaleString() : '—';
+  }
+  if (n === 3) {
+    document.getElementById('co-service').textContent = booking.service || '—';
+    document.getElementById('co-date').textContent = booking.date || '—';
+    document.getElementById('co-time').textContent = booking.time || '—';
+    document.getElementById('co-duration').textContent = booking.duration || '—';
+    document.getElementById('co-total').textContent = booking.price ? 'From $' + booking.price.toLocaleString() : '—';
+  }
+  if (n === 4) {
+    document.getElementById('conf-service').textContent = booking.service || 'Full Event Planning';
+    document.getElementById('conf-date').textContent = booking.date || 'Sat, July 19';
+    document.getElementById('conf-time').textContent = booking.time || '2:00 PM';
+  }
+  document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
+</body>
+</html>
