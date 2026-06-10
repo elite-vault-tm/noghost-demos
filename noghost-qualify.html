@@ -540,7 +540,7 @@ footer {
 <div class="page-hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Get Started</div>
-    <h1 class="hero-h1">Let's Build Your<br><em>NoGhost</em> Booking Page</h1>
+    <h1 class="hero-h1">Let's build your<br><em>NoGhost</em> booking page.</h1>
     <div class="hero-sub">
       <span class="hero-sub-item">Takes about 4 minutes</span>
       <span class="hero-sub-item">We respond within 24 hours</span>
@@ -551,7 +551,7 @@ footer {
 
 <!-- FORM -->
 <div class="form-wrap">
-  <form id="noghost-form" action="https://formspree.io/f/xpqepkla" method="POST" novalidate>
+  <form id="noghost-form" action="https://formspree.io/f/xpqepkla" method="POST">
 
     <!-- Hidden fields -->
     <input type="hidden" name="_subject" value="New NoGhost Inquiry">
@@ -647,7 +647,7 @@ footer {
 
       <!-- Q6 -->
       <div class="q-block">
-        <label class="q-label">Drop your social handles so we can see your brand vibe</label>
+        <label class="q-label">Share your social handles so we can get a feel for your brand before we build</label>
         <div style="display:flex;flex-direction:column;gap:10px;">
           <input class="q-input" type="text" name="Instagram Handle" placeholder="Instagram: @yourhandle">
           <input class="q-input" type="text" name="TikTok Handle" placeholder="TikTok: @yourhandle">
@@ -694,7 +694,7 @@ footer {
 
       <!-- Q10 -->
       <div class="q-block">
-        <label class="q-label">What usually happens after someone says they're interested?</label>
+        <label class="q-label">Right now, when someone expresses interest in your services, what typically happens next?</label>
         <div class="radio-grid single-col">
           <div class="radio-opt"><input type="radio" name="After Interest" id="ai1" value="They send me a DM"><label for="ai1">They send me a DM</label></div>
           <div class="radio-opt"><input type="radio" name="After Interest" id="ai2" value="They text me"><label for="ai2">They text me</label></div>
@@ -747,7 +747,7 @@ footer {
 
       <!-- Q12 -->
       <div class="q-block">
-        <label class="q-label">Roughly how much revenue do you lose to no-shows or ghosted bookings each month?</label>
+        <label class="q-label">Roughly how much do you think no-shows or lost leads cost you each month? <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label>
         <div class="radio-grid single-col">
           <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl1" value="Under $200"><label for="rl1">Under $200</label></div>
           <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl2" value="$200 – $500"><label for="rl2">$200 – $500</label></div>
@@ -759,7 +759,7 @@ footer {
 
       <!-- Q13 -->
       <div class="q-block">
-        <label class="q-label">How many clients do you typically book per month?</label>
+        <label class="q-label">How many clients are you currently booking per month — or hoping to book?</label>
         <div class="radio-grid single-col">
           <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc1" value="1 – 5"><label for="mc1">1 – 5</label></div>
           <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc2" value="6 – 15"><label for="mc2">6 – 15</label></div>
@@ -772,9 +772,9 @@ footer {
 
       <!-- Q14 -->
       <div class="q-block">
-        <label class="q-label" for="q14">What does success look like for you with NoGhost?</label>
+        <label class="q-label" for="q14">What would a win look like for your business once your NoGhost page is live?</label>
         <div class="q-helper">What would make this a total win for your business? Be specific — we use this to build your custom proposal.</div>
-        <textarea class="q-input" id="q14" name="Success Definition" placeholder="Paint us a picture of what winning looks like..."></textarea>
+        <textarea class="q-input" id="q14" name="Success Definition" placeholder="Be specific — what changes in your business when this is working?"></textarea>
       </div>
 
       <div class="form-nav">
@@ -826,7 +826,7 @@ footer {
 
       <!-- Q17 -->
       <div class="q-block">
-        <label class="q-label">What's your budget for getting NoGhost set up?</label>
+        <label class="q-label">Do you have a budget range in mind? This helps us recommend the right option for your business. <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label>
         <div class="radio-grid single-col">
           <div class="radio-opt"><input type="radio" name="Budget" id="bg1" value="Under $500"><label for="bg1">Under $500</label></div>
           <div class="radio-opt"><input type="radio" name="Budget" id="bg2" value="$500 – $1,000"><label for="bg2">$500 – $1,000</label></div>
@@ -875,12 +875,11 @@ footer {
       </div>
 
       <div style="text-align:center; margin-top: 40px;">
-        <button type="submit" class="btn-submit" id="submit-btn">Let's Build My Page →</button>
+        <button type="submit" class="btn-submit">Let's Build My Page →</button>
         <div class="submit-micro">
           ⚡ We respond within 24 hours — Monday through Friday.<br>
           Because people shouldn't have to guess how to work with you.
         </div>
-        <div id="submit-error" style="display:none; margin-top:16px; padding:14px 18px; background:#FFE4E0; border:1px solid #FF6B5B; border-radius:10px; color:#8B2B1F; font-size:14px; font-weight:600;"></div>
       </div>
 
       <div class="form-nav" style="border-top: none; margin-top: 20px; padding-top: 0;">
@@ -949,19 +948,8 @@ function toggleSpecify(id, checkbox) {
 
 // ── FORM SUBMIT → THANK YOU ──
 const form = document.getElementById('noghost-form');
-const submitBtn = document.getElementById('submit-btn');
-const errorBox = document.getElementById('submit-error');
-
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
-  errorBox.style.display = 'none';
-
-  // Loading state
-  const originalText = submitBtn.innerHTML;
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = 'Sending… ⏳';
-  submitBtn.style.opacity = '0.7';
-
   const data = new FormData(form);
   try {
     const res = await fetch(form.action, {
@@ -974,20 +962,10 @@ form.addEventListener('submit', async function(e) {
       document.getElementById('thankyou').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      const errData = await res.json().catch(() => ({}));
-      const msg = errData.errors ? errData.errors.map(er => er.message).join(', ') : ('Submission failed (HTTP ' + res.status + '). Please try again or email us directly.');
-      errorBox.textContent = msg;
-      errorBox.style.display = 'block';
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-      submitBtn.style.opacity = '1';
+      alert('Something went wrong. Please try again or email us directly.');
     }
   } catch(err) {
-    errorBox.textContent = 'Network error: ' + err.message + '. Please check your connection and try again.';
-    errorBox.style.display = 'block';
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = originalText;
-    submitBtn.style.opacity = '1';
+    alert('Something went wrong. Please try again.');
   }
 });
 </script>
