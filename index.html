@@ -162,6 +162,33 @@ nav {
   color: var(--bg-primary);
 }
 
+
+/* ── HERO WHAT YOU GET ── */
+.hero-what-you-get {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.hero-wyg-item {
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.hero-trust-line {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
 /* ── HERO ── */
 .hero {
   background: var(--bg-primary);
@@ -1137,18 +1164,17 @@ footer {
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-eyebrow">Summer is here · Back-to-school is around the corner</div>
-      <h1 class="hero-h1">Is your booking<br>process <em>ready?</em></h1>
-      <div class="hero-sub">People said they were interested.<br>Your calendar says otherwise.</div>
-      <div class="hero-pain">
-        <div class="hero-pain-line">"How much do you charge?"</div>
-        <div class="hero-pain-line">"Do you have availability?"</div>
-        <div class="hero-pain-line">"How do I book?"</div>
+      <div class="hero-eyebrow">Custom Booking Pages for Service Businesses</div>
+      <h1 class="hero-h1">Your next client<br>is already <em>interested.</em><br>They just don't know<br>how to book you.</h1>
+      <div class="hero-sub">NoGhost builds a custom booking page for your service business so potential clients have one clear place to go, one clear thing to do, and no reason to disappear.</div>
+      <div class="hero-what-you-get">
+        <div class="hero-wyg-item">✦ A custom booking page built for your business and your clients</div>
+        <div class="hero-wyg-item">✦ A clear path from "I'm interested" to confirmed appointment</div>
+        <div class="hero-wyg-item">✦ A professional online presence that works even when you're not</div>
       </div>
-      <p class="hero-resolve"><strong>NoGhost creates a custom booking page for your business</strong> so potential clients know exactly what to do next.</p>
       <div class="hero-btns">
-        <a href="#demos" class="btn-primary">View Live Demos →</a>
-        <a href="#how" class="btn-secondary">See How It Works</a>
+        <a href="#demos" class="btn-primary">Get Started — It Takes 4 Minutes →</a>
+        <a href="#how" class="btn-secondary">See Live Examples</a>
       </div>
     </div>
     <div class="hero-mockup">
@@ -1208,34 +1234,34 @@ footer {
           <div class="pain-icon">💬</div>
           <div>
             <div class="pain-title">They ask for the price.</div>
-            <div class="pain-desc">You answer. They say "ok thanks." You never hear from them again.</div>
+            <div class="pain-desc">You answer. They say "sounds good." You never hear from them again.</div>
           </div>
         </div>
         <div class="pain-card">
           <div class="pain-icon">📅</div>
           <div>
             <div class="pain-title">They ask if you're available.</div>
-            <div class="pain-desc">You check your calendar, respond with options, and wait. They disappear.</div>
+            <div class="pain-desc">You check, respond, offer options. They go quiet.</div>
           </div>
         </div>
         <div class="pain-card">
           <div class="pain-icon">🔁</div>
           <div>
             <div class="pain-title">They ask how to book.</div>
-            <div class="pain-desc">You explain the process. They say they'll circle back. They don't.</div>
+            <div class="pain-desc">You explain. They say they'll get back to you. They don't.</div>
           </div>
         </div>
         <div class="pain-card">
           <div class="pain-icon">👻</div>
           <div>
-            <div class="pain-title">Then the conversation disappears.</div>
-            <div class="pain-desc">And you start all over with the next person asking the same questions.</div>
+            <div class="pain-title">Then nothing.</div>
+            <div class="pain-desc">And you start the whole conversation over with the next person.</div>
           </div>
         </div>
       </div>
       <div class="pain-right">
-        <div class="pain-statement"><em>NoGhost</em> gives them one clear next step.</div>
-        <p class="pain-resolve">Your booking page does the explaining for you. <strong>Services, availability, policies, and a place to take action</strong> — all in one place, all the time, without you having to say a word.</p>
+        <div class="pain-statement"><em>NoGhost</em> gives every interested person one clear next step — before they have a chance to disappear.</div>
+        <p class="pain-resolve">Your booking page handles the explaining. <strong>Services, availability, policies, and a simple way to request an appointment.</strong> All in one place. All the time.</p>
         <a href="#demos" class="btn-primary">See It in Action →</a>
       </div>
     </div>
@@ -1246,7 +1272,7 @@ footer {
 <section class="section build-section" id="how">
   <div class="section-inner">
     <div class="eyebrow coral">What NoGhost Builds for You</div>
-    <div class="section-h2">Everything your client needs.<br><em>Before they even ask.</em></div>
+    <div class="section-h2">Everything your client needs<br><em>to say yes.</em></div>
     <div class="build-grid">
       <div class="build-card">
         <div class="build-icon">📋</div>
@@ -1289,12 +1315,12 @@ footer {
       <div class="ghosted-eyebrow">Sound familiar?</div>
       <h2 class="ghosted-h2">People said they were interested.<br><em>Your calendar says otherwise.</em></h2>
       <p class="ghosted-body">
-        They liked your post. They commented "DM me the price."<br>
-        They said "I'll book next week."<br><br>
+        They liked your post. They said "DM me the info."<br>
+        They told you they'd book next week.<br><br>
         Next week never came.
       </p>
       <div class="ghosted-punch">They ghosted.</div>
-      <div class="ghosted-punch highlight">Let NoGhost fix that.</div>
+      <div class="ghosted-punch highlight">Let NoGhost build a booking page that gives every interested client one clear next step — so the only thing left for them to do is show up.</div>
       <a href="#demos" class="btn-primary">View Live Demos →</a>
     </div>
   </div>
@@ -1337,11 +1363,11 @@ footer {
     <div class="demos-intro">
       <div class="eyebrow coral">Live Demo Pages</div>
       <div class="section-h2">Different businesses.<br><em>Same problem.</em></div>
-      <p class="demos-intro-sub">People are interested. They just need a clear next step. Whether you're a stylist, travel advisor, photographer, coach, or local service provider, NoGhost helps potential clients understand how to work with you.</p>
+      <p class="demos-intro-sub">Every service business has people who are interested but don't know what to do next. These pages fix that.</p>
     </div>
     <div class="demos-callout">
-      <strong>Someone asks about your services. What happens next?</strong><br>
-      These examples show how NoGhost helps potential clients move from interested to booked.
+      <strong>What happens when someone asks about your services?</strong><br>
+      These demos show what it looks like when potential clients have a clear next step waiting for them.
     </div>
     <div class="demos-grid">
       <div class="demo-card">
@@ -1397,9 +1423,9 @@ footer {
 <!-- FINAL CTA -->
 <section class="cta-section">
   <div class="cta-inner">
-    <h2 class="cta-h2">Ready to stop being ghosted?</h2>
-    <p class="cta-sub">Answer a few quick questions and we'll send you a custom proposal within 24 hours.</p>
-    <a href="noghost-qualify.html" class="btn-cta">Get Started — Reserve My Spot →</a>
+    <h2 class="cta-h2">Ready to stop losing people<br>who were already interested?</h2>
+    <p class="cta-sub">Tell us about your business. We'll build your page around your services, your clients, and your brand. You review it before anything goes live.</p>
+    <a href="noghost-qualify.html" class="btn-cta">Get Started — It Takes 4 Minutes →</a>
   </div>
 </section>
 
