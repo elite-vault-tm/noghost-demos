@@ -673,6 +673,22 @@ footer {
         </div>
       </div>
 
+
+      <!-- Q7b — Booking Tool -->
+      <div class="q-block">
+        <label class="q-label">If yes, which booking tool do you use?</label>
+        <div class="radio-grid single-col">
+          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt1" value="Calendly"><label for="cbt1">Calendly</label></div>
+          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt2" value="Square Appointments"><label for="cbt2">Square Appointments</label></div>
+          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt3" value="Booksy"><label for="cbt3">Booksy</label></div>
+          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt4" value="Something else" onchange="toggleSpecify('cbt-other-specify', this)"><label for="cbt4">Something else</label></div>
+          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt5" value="I don't have one yet"><label for="cbt5">I don't have one yet</label></div>
+        </div>
+        <div class="specify-wrap" id="cbt-other-specify">
+          <input class="q-input" type="text" name="Current Booking Tool (Other)" placeholder="What tool do you use?">
+        </div>
+      </div>
+
       <!-- Q9 -->
       <div class="q-block">
         <label class="q-label">Where do most of your inquiries come from? (Select all that apply)</label>
