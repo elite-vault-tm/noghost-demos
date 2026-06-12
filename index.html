@@ -44,6 +44,382 @@ body {
   overflow-x: hidden;
 }
 
+
+/* ── HERO DIFF LINE ── */
+.hero-diff {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* ── FOUNDER SECTION ── */
+.founder-section {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.founder-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.founder-photo-wrap {
+  position: relative;
+}
+
+.founder-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--r-md);
+  display: block;
+  box-shadow: var(--shadow-lg);
+}
+
+.founder-photo-badge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: var(--accent-primary);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 10px 16px;
+  border-radius: var(--r-pill);
+  box-shadow: var(--shadow-md);
+}
+
+.founder-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-mango);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.founder-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--accent-mango);
+  opacity: 0.6;
+}
+
+.founder-name {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.founder-name em { font-style: italic; color: var(--accent-primary); }
+
+.founder-bio {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.founder-cred {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.founder-cred-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.founder-cred-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-mango);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── PRICING SECTION ── */
+.pricing-section { background: var(--bg-secondary); }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: all 0.25s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.pricing-card.featured {
+  border-color: var(--accent-primary);
+  border-width: 2px;
+}
+
+.pricing-featured-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-primary);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: var(--r-pill);
+  white-space: nowrap;
+}
+
+.pricing-tier {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-mango);
+  margin-bottom: 10px;
+}
+
+.pricing-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.pricing-price {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.pricing-price span {
+  font-size: 22px;
+  color: var(--text-secondary);
+  font-family: var(--font-ui);
+  font-weight: 400;
+}
+
+.pricing-note {
+  font-size: 12px;
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+
+.pricing-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+}
+
+.pricing-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.pricing-features li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.pricing-features li::before {
+  content: '✓';
+  color: var(--accent-mint);
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.pricing-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px;
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.pricing-btn:hover {
+  background: var(--accent-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.pricing-btn.featured-btn {
+  background: var(--accent-primary);
+}
+
+.pricing-btn.featured-btn:hover {
+  background: var(--accent-deep);
+}
+
+.pricing-scarcity {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.pricing-scarcity strong { color: var(--accent-primary); font-weight: 700; }
+
+/* ── TESTIMONIALS ── */
+.testimonials-section { background: var(--bg-primary); }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  font-family: var(--font-display);
+  font-size: 80px;
+  color: var(--accent-primary);
+  opacity: 0.12;
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  line-height: 1;
+}
+
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-mango));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: white;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.testimonial-biz {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.testimonial-stars {
+  color: var(--accent-mango);
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 900px) {
+  .founder-inner { grid-template-columns: 1fr; gap: 40px; }
+  .founder-photo { aspect-ratio: 4/3; object-position: center top; max-height: 400px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
 /* ── NAV ── */
 nav {
   background: rgba(255,248,236,0.92);
@@ -1155,6 +1531,7 @@ footer {
     <div class="nav-links">
       <a href="#how" class="nav-link">How It Works</a>
       <a href="#demos" class="nav-link">Live Demos</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
       <a href="noghost-qualify.html" class="btn-nav">Get Started →</a>
     </div>
   </div>
@@ -1167,6 +1544,7 @@ footer {
       <div class="hero-eyebrow">Custom Booking Pages for Service Businesses</div>
       <h1 class="hero-h1">Your next client<br>is already <em>interested.</em><br>They just don't know<br>how to book you.</h1>
       <div class="hero-sub">NoGhost builds a custom booking page for your service business so potential clients have one clear place to go, one clear thing to do, and no reason to disappear.</div>
+      <div class="hero-diff">Your business deserves a real booking page. We build it. You share it. Clients book.</div>
       <div class="hero-what-you-get">
         <div class="hero-wyg-item">✦ A custom booking page built for your business and your clients</div>
         <div class="hero-wyg-item">✦ A clear path from "I'm interested" to confirmed appointment</div>
@@ -1326,32 +1704,24 @@ footer {
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section how-section">
+
+<!-- FOUNDER -->
+<section class="section founder-section">
   <div class="section-inner">
-    <div class="eyebrow mint">The Process</div>
-    <div class="section-h2">Simple from start<br><em>to booked.</em></div>
-    <div class="how-grid">
-      <div class="how-connector"></div>
-      <div class="how-step">
-        <div class="how-num">01</div>
-        <div class="how-title">Fill Out the Intake</div>
-        <div class="how-desc">Tell us about your business, your clients, and what you need. Takes about 4 minutes.</div>
+    <div class="founder-inner">
+      <div class="founder-photo-wrap">
+        <img src="sabrina-founder.png" alt="Sabrina Nichols Johnson" class="founder-photo">
+        <div class="founder-photo-badge">Founder · The Elite Vault</div>
       </div>
-      <div class="how-step">
-        <div class="how-num">02</div>
-        <div class="how-title">We Build It</div>
-        <div class="how-desc">Your custom page is designed to match your brand, your services, and your clients.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">03</div>
-        <div class="how-title">You Review It</div>
-        <div class="how-desc">You see everything before it goes live. We make changes until it feels exactly right.</div>
-      </div>
-      <div class="how-step">
-        <div class="how-num">04</div>
-        <div class="how-title">You Go Live</div>
-        <div class="how-desc">Share the link. Put it in your bio. Send it to clients. Done.</div>
+      <div class="founder-right">
+        <div class="founder-eyebrow">Who builds your page</div>
+        <div class="founder-name">Hi, I'm <em>Sabrina.</em></div>
+        <p class="founder-bio">I'm Sabrina Nichols Johnson, founder of The Elite Vault. I built NoGhost because I kept watching talented service providers lose clients they had already earned — not because their work wasn't good, but because people couldn't figure out how to book them.<br><br>Every NoGhost page is built by me, for your specific business. Not a template. Not a tool. A real custom page that gives every interested client one clear next step.</p>
+        <div class="founder-cred">
+          <div class="founder-cred-item"><div class="founder-cred-dot"></div>Done-for-you service</div>
+          <div class="founder-cred-item"><div class="founder-cred-dot"></div>Live in 72 business hours</div>
+          <div class="founder-cred-item"><div class="founder-cred-dot"></div>Built for service businesses</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1414,6 +1784,137 @@ footer {
             <span class="demo-tag">Loc Maintenance</span>
           </div>
           <a href="adore-braiding-booking.html" class="demo-btn">View Adore Demo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-section">
+  <div class="section-inner">
+    <div class="eyebrow mint">The Process</div>
+    <div class="section-h2">Simple from start<br><em>to booked.</em></div>
+    <div class="how-grid">
+      <div class="how-connector"></div>
+      <div class="how-step">
+        <div class="how-num">01</div>
+        <div class="how-title">Fill Out the Intake</div>
+        <div class="how-desc">Tell us about your business, your clients, and what you need. Takes about 4 minutes.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">02</div>
+        <div class="how-title">We Build It</div>
+        <div class="how-desc">Your custom page is designed to match your brand, your services, and your clients.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">03</div>
+        <div class="how-title">You Review It</div>
+        <div class="how-desc">You see everything before it goes live. We make changes until it feels exactly right.</div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">04</div>
+        <div class="how-title">You Go Live</div>
+        <div class="how-desc">Share the link. Put it in your bio. Send it to clients. Done.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="eyebrow mango">Founder's Rate — Limited Spots</div>
+    <div class="section-h2">Simple, clear pricing.<br><em>No surprises.</em></div>
+    <p class="section-body">Every tier includes a custom-designed page built around your business, your services, and your clients. Live in 72 business hours.</p>
+    <div class="pricing-grid">
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Starter</div>
+        <div class="pricing-name">Page Build</div>
+        <div class="pricing-price"><span>$</span>197</div>
+        <div class="pricing-note">Founder's Rate</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-desc">You already have a booking tool. We build a custom branded page around it and connect everything so clients land somewhere professional.</div>
+        <ul class="pricing-features">
+          <li>Custom branded booking page</li>
+          <li>Service menu with pricing</li>
+          <li>Policy and availability section</li>
+          <li>Appointment request flow</li>
+          <li>Connected to your existing booking tool</li>
+          <li>Hosted shareable link</li>
+          <li>Live in 72 business hours</li>
+        </ul>
+        <a href="noghost-qualify.html" class="pricing-btn">Apply for This Tier →</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-featured-badge">Most Popular</div>
+        <div class="pricing-tier">Complete</div>
+        <div class="pricing-name">Page + Setup</div>
+        <div class="pricing-price"><span>$</span>347</div>
+        <div class="pricing-note">Founder's Rate</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-desc">You don't have a booking tool yet. We build the page, recommend the right free tool for your business, and set it up so everything works together.</div>
+        <ul class="pricing-features">
+          <li>Everything in Starter</li>
+          <li>Booking tool recommendation for your industry</li>
+          <li>Full tool setup (Calendly, Square, or Booksy)</li>
+          <li>Services and pricing configured inside your tool</li>
+          <li>Everything connected and tested before delivery</li>
+        </ul>
+        <a href="noghost-qualify.html" class="pricing-btn featured-btn">Apply for This Tier →</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-name">Page + Setup + Training</div>
+        <div class="pricing-price"><span>$</span>497</div>
+        <div class="pricing-note">Founder's Rate</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-desc">Everything built, set up, and then walked through with you so you know exactly how to manage your page and booking tool going forward.</div>
+        <ul class="pricing-features">
+          <li>Everything in Complete</li>
+          <li>15-minute 1-on-1 walkthrough call</li>
+          <li>You leave knowing how to update your own page</li>
+          <li>One revision round included</li>
+        </ul>
+        <a href="noghost-qualify.html" class="pricing-btn">Apply for This Tier →</a>
+      </div>
+
+    </div>
+    <div class="pricing-scarcity">⚡ <strong>5 spots available this month.</strong> Founder's Rate goes away after the first 5 builds.</div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="section-inner">
+    <div class="eyebrow coral">What Clients Are Saying</div>
+    <div class="section-h2">Real businesses.<br><em>Real results.</em></div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"This has honestly been a lifesaver. I was losing clients left and right just because I didn't have a clear way for them to book me. Now I just send them my link and they handle everything themselves. I don't have to answer the same questions anymore."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">T</div>
+          <div>
+            <div class="testimonial-name">T. Young</div>
+            <div class="testimonial-biz">Service Business Owner · Atlanta, GA</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-quote">"I was skeptical at first but this definitely helped. My page looks professional, my clients actually use it, and I can tell the difference in how people treat my business now. Easy to use, easy to share, and it just works."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">A. Williams</div>
+            <div class="testimonial-biz">Service Business Owner · Atlanta, GA</div>
+          </div>
         </div>
       </div>
     </div>
