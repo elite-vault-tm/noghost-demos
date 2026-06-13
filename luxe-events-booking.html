@@ -44,7 +44,6 @@
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--text-dark); font-family: var(--font-ui); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
-/* ── ANNOUNCEMENT BAR ── */
 .announcement-bar {
   background: var(--fuchsia);
   color: white;
@@ -71,7 +70,6 @@ body { background: var(--bg); color: var(--text-dark); font-family: var(--font-u
   .ann-item:not(:first-child), .ann-dot { display: none; }
 }
 
-/* ── HEADER ── */
 header {
   background: var(--bg-card);
   padding: 0 40px;
@@ -127,7 +125,6 @@ header {
   box-shadow: 0 6px 20px rgba(212,69,122,0.3);
 }
 
-/* ── HERO ── */
 .hero {
   background: var(--bg-card);
   padding: 80px 40px;
@@ -232,7 +229,6 @@ h1 em { font-style: italic; color: var(--fuchsia); }
   flex-shrink: 0;
 }
 
-/* PHOTO COLLAGE */
 .hero-right {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -285,7 +281,6 @@ h1 em { font-style: italic; color: var(--fuchsia); }
   text-transform: uppercase;
 }
 
-/* ── PLANNER STRIP ── */
 .planner-strip {
   background: var(--fuchsia-deep);
   padding: 24px 40px;
@@ -316,7 +311,6 @@ h1 em { font-style: italic; color: var(--fuchsia); }
 .planner-title { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 600; letter-spacing: 0.06em; margin-top: 2px; text-transform: uppercase; }
 .planner-quote { font-size: 14px; color: rgba(255,255,255,0.7); font-style: italic; font-family: var(--font-display); max-width: 520px; line-height: 1.6; border-left: 2px solid var(--gold); padding-left: 16px; margin-left: auto; }
 
-/* ── MAIN ── */
 .main {
   max-width: 1160px;
   margin: 0 auto;
@@ -327,7 +321,6 @@ h1 em { font-style: italic; color: var(--fuchsia); }
   align-items: start;
 }
 
-/* ── BOOKING HEADER ── */
 .booking-tag {
   font-size: 11px;
   font-weight: 700;
@@ -347,7 +340,6 @@ h2 {
   line-height: 1.1;
 }
 
-/* ── STEPS ── */
 .steps {
   display: flex;
   align-items: center;
@@ -372,11 +364,9 @@ h2 {
 .step.done .step-label { color: var(--fuchsia); }
 .step.inactive .step-label { color: var(--text-muted); }
 
-/* ── PANELS ── */
 .step-panel { display: none; }
 .step-panel.active { display: block; }
 
-/* ── SERVICE CARDS ── */
 .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 28px; }
 
 .service-card {
@@ -399,7 +389,6 @@ h2 {
 .service-time { font-size: 12px; color: var(--text-soft); }
 .service-price { font-family: var(--font-display); font-size: 20px; color: var(--fuchsia); }
 
-/* ── CALENDAR ── */
 .calendar-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
 .calendar-header { background: var(--fuchsia-deep); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
 .calendar-month { font-family: var(--font-display); font-size: 20px; color: white; }
@@ -416,7 +405,6 @@ h2 {
 .cal-date.past { color: var(--border-mid); cursor: default; }
 .cal-date.empty { cursor: default; }
 
-/* ── TIME SLOTS ── */
 .time-label { font-size: 13px; font-weight: 700; color: var(--text-mid); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .time-label span { color: var(--fuchsia); font-family: var(--font-display); font-style: italic; }
 .time-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 28px; }
@@ -424,7 +412,6 @@ h2 {
 .time-slot:hover { border-color: var(--fuchsia); color: var(--fuchsia); transform: translateY(-1px); }
 .time-slot.selected { background: var(--fuchsia); border-color: var(--fuchsia); color: white; }
 
-/* ── CHECKOUT ── */
 .checkout-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
 .checkout-section { padding: 22px 24px; border-bottom: 1px solid var(--border); }
 .checkout-section:last-child { border-bottom: none; }
@@ -447,7 +434,6 @@ h2 {
 .payment-note { background: rgba(232,184,75,0.08); border: 2px dashed var(--gold-border); border-radius: var(--r-md); padding: 16px; font-size: 14px; color: var(--text-mid); line-height: 1.7; }
 .payment-note strong { color: var(--fuchsia-deep); display: block; margin-bottom: 6px; font-size: 15px; }
 
-/* ── BUTTONS ── */
 .btn-primary { width: 100%; background: var(--fuchsia-deep); color: white; font-family: var(--font-ui); font-weight: 700; font-size: 15px; padding: 16px; border-radius: var(--r-pill); border: none; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
 .btn-primary:hover { background: var(--fuchsia); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(212,69,122,0.3); }
 .btn-primary.gold { background: var(--gold); color: var(--text-dark); }
@@ -455,14 +441,12 @@ h2 {
 .btn-back { background: none; border: none; font-family: var(--font-ui); font-size: 13px; color: var(--text-muted); cursor: pointer; padding: 12px 0; display: block; width: 100%; text-align: center; transition: color 0.2s; font-weight: 600; }
 .btn-back:hover { color: var(--fuchsia); }
 
-/* ── SELECTED SUMMARY ── */
 .selected-summary { background: var(--fuchsia-pale); border: 2px solid var(--fuchsia-border); border-radius: var(--r-md); padding: 14px 18px; margin-bottom: 20px; display: none; }
 .selected-summary.visible { display: flex; justify-content: space-between; align-items: center; }
 .sum-name { font-weight: 700; font-size: 15px; color: var(--text-dark); }
 .sum-meta { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
 .sum-price { font-family: var(--font-display); font-size: 24px; color: var(--fuchsia); }
 
-/* ── CONFIRMATION ── */
 .confirmation { text-align: center; padding: 48px 24px; }
 .conf-icon { width: 80px; height: 80px; background: var(--emerald-pale); border: 3px solid var(--emerald); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; margin: 0 auto 24px; }
 .confirmation h2 { font-family: var(--font-display); font-size: 36px; color: var(--text-dark); margin-bottom: 8px; }
@@ -474,7 +458,6 @@ h2 {
 .conf-value { font-weight: 700; color: var(--text-dark); }
 .conf-note { background: var(--fuchsia-pale); border-radius: var(--r-md); padding: 18px; font-size: 13px; color: var(--text-mid); line-height: 1.7; text-align: left; }
 
-/* ── SIDEBAR ── */
 .sidebar { position: sticky; top: 90px; }
 .sidebar-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 16px; box-shadow: var(--shadow-sm); }
 .sidebar-head { background: var(--fuchsia-deep); padding: 14px 20px; display: flex; align-items: center; gap: 10px; }
@@ -489,13 +472,11 @@ h2 {
 .hours-time { color: var(--text-dark); font-weight: 700; font-size: 12px; }
 .location-pill { display: flex; align-items: center; gap: 8px; background: var(--fuchsia-pale); border-radius: var(--r-sm); padding: 10px 14px; font-size: 13px; color: var(--text-mid); font-weight: 600; margin-top: 12px; }
 
-/* ── FOOTER ── */
 footer { background: var(--text-dark); padding: 28px 40px; text-align: center; border-top: 3px solid var(--gold); }
 .footer-brand { font-family: var(--font-display); font-size: 20px; color: white; margin-bottom: 6px; }
 .footer-legal { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
 .footer-powered { font-size: 11px; color: rgba(232,184,75,0.45); margin-top: 8px; letter-spacing: 0.1em; text-transform: uppercase; }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero { padding: 60px 24px; }
@@ -546,25 +527,16 @@ footer { background: var(--text-dark); padding: 28px 40px; text-align: center; b
       </div>
     </div>
     <div class="hero-right">
-      <div class="photo-slot" style="background: linear-gradient(135deg, #D4457A, #9B2D5A);">
-        <div class="photo-placeholder" style="color: rgba(255,255,255,0.6);">
-          <div style="font-size: 36px;">🎊</div>
-          <div>Event photo</div>
-        </div>
+      <div class="photo-slot" style="grid-row: span 2;">
+        <img src="luxe-events-slot1.png" alt="Luxury Events" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r-xl);">
         <div class="photo-label">Luxury Events</div>
       </div>
-      <div class="photo-slot" style="background: linear-gradient(135deg, #E8B84B, #D4457A);">
-        <div class="photo-placeholder" style="color: rgba(255,255,255,0.6);">
-          <div style="font-size: 28px;">🎂</div>
-          <div>Birthday photo</div>
-        </div>
+      <div class="photo-slot">
+        <img src="luxe-events-slot2.png" alt="Birthday Parties" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg);">
         <div class="photo-label">Birthday Parties</div>
       </div>
-      <div class="photo-slot" style="background: linear-gradient(135deg, #9B2D5A, #D4457A);">
-        <div class="photo-placeholder" style="color: rgba(255,255,255,0.6);">
-          <div style="font-size: 28px;">🥂</div>
-          <div>Event photo</div>
-        </div>
+      <div class="photo-slot">
+        <img src="luxe-events-slot3.png" alt="Baby Showers" style="width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg);">
         <div class="photo-label">Baby Showers</div>
       </div>
     </div>
@@ -759,9 +731,11 @@ footer { background: var(--text-dark); padding: 28px 40px; text-align: center; b
     </div>
   </div>
 </div>
+
 <div style="text-align:center;padding:32px 24px;background:#FFF8EC;border-top:1px solid #F0DDC0;">
   <a href="noghost-qualify.html" style="display:inline-flex;align-items:center;gap:8px;background:#FF6B5B;color:white;font-family:sans-serif;font-weight:700;font-size:15px;padding:16px 36px;border-radius:999px;text-decoration:none;">I Want This for My Business →</a>
 </div>
+
 <footer>
   <div class="footer-brand">Luxe & Co. Events</div>
   <div class="footer-legal">Atlanta, GA · Full-Service Event Planning · © 2025 Luxe & Co. Events</div>
