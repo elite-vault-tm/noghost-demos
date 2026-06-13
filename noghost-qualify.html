@@ -947,30 +947,64 @@ form.addEventListener('submit', async function(e) {
 
   const data = new FormData(form);
 
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
+  // Build EmailOctopus payload using actual HTML field names
+  const fullName = (data.get('Full Name') || '').trim();
+  const nameParts = fullName.split(/\s+/);
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts.slice(1).join(' ') || '';
 
-    if (res.ok) {
-      form.style.display = 'none';
-      document.getElementById('thankyou').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const errData = await res.json().catch(() => ({}));
-      const errMsg = errData.errors
-        ? errData.errors.map(err => err.message).join(', ')
-        : 'Something went wrong. Please try again or email us directly at hello@theelitevaultsnj.com.';
-      submitError.textContent = errMsg;
-      submitError.style.display = 'block';
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalBtnText;
-      submitBtn.style.opacity = '1';
-    }
-  } catch(err) {
-    submitError.textContent = 'Network error. Please check your connection and try again.';
+  const challengesChecked = form.querySelectorAll('input[name="Challenges[]"]:checked');
+  const challengesValue = Array.from(challengesChecked).map(cb => cb.value).join(', ');
+
+  const eoPayload = {
+    EmailAddress: data.get('email') || '',
+    FirstName: firstName,
+    LastName: lastName,
+    BusinessName: data.get('Business Name & Description') || '',
+    BusinessType: data.get('Business Type') || '',
+    City: data.get('City') || '',
+    State: data.get('State') || '',
+    Challenge: challengesValue,
+    Budget: data.get('Budget') || '',
+    Timeline: data.get('Timeline') || '',
+    _gotcha: data.get('_gotcha') || ''
+  };
+
+  // Fire both submissions in parallel
+  const [formspreeResult, eoResult] = await Promise.allSettled([
+    fetch('https://formspree.io/f/xpqepkla', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    }),
+    fetch('https://noghost-submit.sabrinanicholsjohnson.workers.dev', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(eoPayload)
+    })
+  ]);
+
+  const formspreeOk = formspreeResult.status === 'fulfilled' && formspreeResult.value.ok;
+  const eoOk = eoResult.status === 'fulfilled' && eoResult.value.ok;
+
+  if (!eoOk) {
+    console.warn('EmailOctopus submission failed:', eoResult);
+  } else {
+    console.log('EmailOctopus subscription successful');
+  }
+
+  if (formspreeOk) {
+    form.style.display = 'none';
+    document.getElementById('thankyou').classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    const errData = formspreeResult.status === 'fulfilled'
+      ? await formspreeResult.value.json().catch(() => ({}))
+      : {};
+    const errMsg = errData.errors
+      ? errData.errors.map(err => err.message).join(', ')
+      : 'Something went wrong. Please try again or email us directly at hello@theelitevaultsnj.com.';
+    submitError.textContent = errMsg;
     submitError.style.display = 'block';
     submitBtn.disabled = false;
     submitBtn.textContent = originalBtnText;
