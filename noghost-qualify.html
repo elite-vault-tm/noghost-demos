@@ -229,7 +229,7 @@ nav {
   line-height: 1.65;
 }
 
-.q-block { margin-bottom: 32px; }
+.q-block { margin-bottom: 32px; position: relative; }
 
 .q-label {
   display: block;
@@ -512,6 +512,36 @@ footer {
 .footer-sub { font-size: 12px; color: rgba(255,248,236,0.3); letter-spacing: 0.05em; }
 .footer-powered { font-size: 11px; color: rgba(255,169,77,0.4); margin-top: 6px; letter-spacing: 0.1em; text-transform: uppercase; }
 
+.q-error {
+  display: none;
+  color: var(--coral-deep);
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 8px;
+  align-items: center;
+  gap: 6px;
+}
+
+.q-error.visible { display: flex; }
+.q-error::before { content: '⚠'; font-size: 13px; }
+
+.q-block.has-error .q-input {
+  border-color: var(--coral-deep);
+  box-shadow: 0 0 0 3px rgba(224,74,58,0.1);
+}
+
+.q-block.has-error .radio-opt label {
+  border-color: var(--coral-deep);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.q-block.has-error { animation: shake 0.3s ease; }
+
 @media (max-width: 640px) {
   .form-wrap { padding: 40px 24px 64px; }
   .page-hero { padding: 56px 24px 48px; }
@@ -541,7 +571,7 @@ footer {
     <div class="hero-eyebrow">Get Started</div>
     <h1 class="hero-h1">Let's build your<br><em>NoGhost</em> booking page.</h1>
     <div class="hero-sub">
-      <span class="hero-sub-item">Takes about 4 minutes</span>
+      <span class="hero-sub-item">Takes about 3 minutes</span>
       <span class="hero-sub-item">We respond within 24 hours</span>
       <span class="hero-sub-item">Spots are limited each month</span>
     </div>
@@ -549,7 +579,7 @@ footer {
 </div>
 
 <div class="form-wrap">
-  <form id="noghost-form" action="https://formspree.io/f/xpqepkla" method="POST">
+  <form id="noghost-form" action="https://formspree.io/f/xpqepkla" method="POST" novalidate>
 
     <input type="hidden" name="_subject" value="New NoGhost Inquiry">
     <input type="hidden" name="_replyto" id="reply-to-hidden">
@@ -558,54 +588,50 @@ footer {
       <input type="text" name="_gotcha" id="_gotcha" tabindex="-1" autocomplete="off">
     </div>
 
-    <!-- STEP 1 -->
+    <!-- STEP 1 — About You -->
     <div class="form-step active" id="step-1">
       <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
       <div class="step-header">
         <div class="step-label">Step 1 of 4</div>
         <div class="step-title">About You</div>
-        <div class="step-sub">Tell us who you are and what you do. Keep it real — your voice helps us build the right page for your business.</div>
+        <div class="step-sub">Tell us who you are and what you do. Your voice helps us build the right page for your business.</div>
       </div>
 
-      <div class="q-block">
-        <label class="q-label" for="q1">What's the name of your business and what do you do, in your own words?</label>
+      <div class="q-block" data-required="text">
+        <label class="q-label" for="q1">What's your business, and what do you do?</label>
         <div class="q-helper">Example: "I'm Maya and I own Lash House Atlanta — a luxury lash studio specializing in volume sets."</div>
-        <input class="q-input" type="text" id="q1" name="Business Name & Description" placeholder="Tell us about your business..." required>
+        <input class="q-input" type="text" id="q1" name="Business Name & Description" placeholder="Tell us about your business...">
+        <div class="q-error">Tell us a little about your business so we know what we're building.</div>
       </div>
 
-      <div class="q-block">
-        <label class="q-label">What type of business is it?</label>
+      <div class="q-block" data-required="radio" data-group="Business Type">
+        <label class="q-label">Which best describes your business?</label>
         <div class="radio-grid">
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt1" value="Hairstylist" required><label for="bt1">Hairstylist</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt2" value="Braider" required><label for="bt2">Braider</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt3" value="Loctician" required><label for="bt3">Loctician</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt4" value="Barber" required><label for="bt4">Barber</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt5" value="Nail Tech" required><label for="bt5">Nail Tech</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt6" value="Esthetician / Lash / Brow Artist" required><label for="bt6">Esthetician / Lash / Brow</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt7" value="Massage Therapist / Bodyworker" required><label for="bt7">Massage / Bodywork</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt8" value="Beauty Professional (other)" required><label for="bt8">Beauty Pro (other)</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt9" value="Photographer" required><label for="bt9">Photographer</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt10" value="Travel Advisor" required><label for="bt10">Travel Advisor</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt11" value="Event Planner" required><label for="bt11">Event Planner</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt12" value="Coach / Consultant" required><label for="bt12">Coach / Consultant</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt13" value="Fitness Trainer / Yoga Instructor" required><label for="bt13">Fitness / Yoga</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt14" value="Cleaning Service" required><label for="bt14">Cleaning Service</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt15" value="Tutor / Educator" required><label for="bt15">Tutor / Educator</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt16" value="Realtor" required><label for="bt16">Realtor</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt17" value="Local Service Business" required><label for="bt17">Local Service Business</label></div>
-          <div class="radio-opt"><input type="radio" name="Business Type" id="bt18" value="Other" required onchange="toggleSpecify('bt-other-specify', this)"><label for="bt18">Other</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt1" value="Hair &amp; Beauty"><label for="bt1">Hair &amp; Beauty</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt2" value="Braids, Locs &amp; Protective Styles"><label for="bt2">Braids, Locs &amp; Protective Styles</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt3" value="Nails, Lashes, Brows &amp; Skin"><label for="bt3">Nails, Lashes, Brows &amp; Skin</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt4" value="Massage / Bodywork"><label for="bt4">Massage / Bodywork</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt5" value="Photography"><label for="bt5">Photography</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt6" value="Travel Advisor"><label for="bt6">Travel Advisor</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt7" value="Event Planning"><label for="bt7">Event Planning</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt8" value="Coaching / Consulting"><label for="bt8">Coaching / Consulting</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt9" value="Fitness / Wellness"><label for="bt9">Fitness / Wellness</label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt10" value="Home &amp; Local Services"><label for="bt10">Home &amp; Local Services <span style="font-size:11px;color:var(--text-soft);font-weight:400;">(cleaning, tutoring, realtors, etc.)</span></label></div>
+          <div class="radio-opt"><input type="radio" name="Business Type" id="bt11" value="Other" onchange="toggleSpecify('bt-other-specify', this)"><label for="bt11">Other</label></div>
         </div>
         <div class="specify-wrap" id="bt-other-specify">
-          <input class="q-input" type="text" name="Business Type (Other)" placeholder="Tell us your business type...">
+          <input class="q-input" type="text" name="Business Type (Other)" placeholder="Tell us your business type..." disabled>
         </div>
+        <div class="q-error">Pick the option closest to your business.</div>
       </div>
 
-      <div class="q-block">
+      <div class="q-block" data-required="text">
         <label class="q-label">Where are you based?</label>
         <div class="q-row">
-          <input class="q-input" type="text" name="City" placeholder="City" required>
-          <input class="q-input" type="text" name="State" placeholder="State" required>
+          <input class="q-input" type="text" name="City" placeholder="City">
+          <input class="q-input" type="text" name="State" placeholder="State">
         </div>
+        <div class="q-error">Let us know your city and state.</div>
       </div>
 
       <div class="form-nav">
@@ -614,7 +640,7 @@ footer {
       </div>
     </div>
 
-    <!-- STEP 2 -->
+    <!-- STEP 2 — Your Current Setup -->
     <div class="form-step" id="step-2">
       <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
       <div class="step-header">
@@ -624,11 +650,11 @@ footer {
       </div>
 
       <div class="q-block">
-        <label class="q-label">Do you currently have a website?</label>
+        <label class="q-label">Do you currently have a website or link in bio?</label>
         <div class="radio-grid single-col">
-          <div class="radio-opt"><input type="radio" name="Has Website" id="hw1" value="Yes — I have a full website" onchange="toggleConditional('website-link-block', true)"><label for="hw1">Yes — I have a full website</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Website" id="hw1" value="Yes — full website" onchange="toggleConditional('website-link-block', true)"><label for="hw1">Yes — I have a full website</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Website" id="hw3" value="Just a link in bio" onchange="toggleConditional('website-link-block', true)"><label for="hw3">Just a link in bio (Linktree, Beacons, Stan Store, etc.)</label></div>
           <div class="radio-opt"><input type="radio" name="Has Website" id="hw2" value="No — nothing yet" onchange="toggleConditional('website-link-block', false)"><label for="hw2">No — nothing yet</label></div>
-          <div class="radio-opt"><input type="radio" name="Has Website" id="hw3" value="Just a link in bio (Linktree, Beacons, Stan Store, etc.)" onchange="toggleConditional('website-link-block', true)"><label for="hw3">Just a link in bio (Linktree, Beacons, Stan Store, etc.)</label></div>
         </div>
       </div>
 
@@ -640,74 +666,52 @@ footer {
       </div>
 
       <div class="q-block">
-        <label class="q-label">Share your social handles so we can get a feel for your brand before we build</label>
+        <label class="q-label">Share your social handles so we can get a feel for your brand before we build <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label>
         <div style="display:flex;flex-direction:column;gap:10px;">
           <input class="q-input" type="text" name="Instagram Handle" placeholder="Instagram: @yourhandle">
-          <input class="q-input" type="text" name="TikTok Handle" placeholder="TikTok: @yourhandle">
-          <input class="q-input" type="text" name="Facebook Page" placeholder="Facebook Page name or URL">
+          <input class="q-input" type="text" name="TikTok / Facebook" placeholder="TikTok or Facebook: @yourhandle">
         </div>
       </div>
 
       <div class="q-block">
-        <label class="q-label">Do you currently have a way for people to book online?</label>
+        <label class="q-label">How do people book you right now?</label>
         <div class="radio-grid single-col">
-          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb1" value="Yes — has booking link" onchange="toggleConditional('booking-link-block', true)"><label for="hb1">Yes — share the booking link below</label></div>
-          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb2" value="No — books through DM, text, or calls" onchange="toggleConditional('booking-link-block', false)"><label for="hb2">No — clients book through DM, text, or calls</label></div>
-          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb3" value="Sort of — messy and doesn't really work" onchange="toggleConditional('booking-link-block', false)"><label for="hb3">Sort of — but it's messy and doesn't really work</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb1" value="I have a booking tool" onchange="toggleConditional('booking-tool-block', true)"><label for="hb1">I already use a booking tool</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb2" value="DM, text, or calls only" onchange="toggleConditional('booking-tool-block', false)"><label for="hb2">DM, text, or calls only</label></div>
+          <div class="radio-opt"><input type="radio" name="Has Booking System" id="hb3" value="I have something, but it's messy" onchange="toggleConditional('booking-tool-block', true)"><label for="hb3">I have something, but it's not working well</label></div>
         </div>
       </div>
 
-      <div class="conditional-block" id="booking-link-block">
+      <div class="conditional-block" id="booking-tool-block">
         <div class="q-block">
-          <label class="q-label" for="q8">Share your booking link</label>
-          <input class="q-input" type="url" id="q8" name="Current Booking Link" placeholder="https://..." disabled>
-        </div>
-      </div>
-
-      <div class="q-block">
-        <label class="q-label">If yes, which booking tool do you use?</label>
-        <div class="radio-grid single-col">
-          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt1" value="Calendly"><label for="cbt1">Calendly</label></div>
-          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt2" value="Square Appointments"><label for="cbt2">Square Appointments</label></div>
-          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt3" value="Booksy"><label for="cbt3">Booksy</label></div>
-          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt4" value="Something else" onchange="toggleSpecify('cbt-other-specify', this)"><label for="cbt4">Something else</label></div>
-          <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt5" value="I don't have one yet"><label for="cbt5">I don't have one yet</label></div>
-        </div>
-        <div class="specify-wrap" id="cbt-other-specify">
-          <input class="q-input" type="text" name="Current Booking Tool (Other)" placeholder="What tool do you use?">
+          <label class="q-label">Which tool do you use?</label>
+          <div class="radio-grid single-col">
+            <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt1" value="Calendly" disabled onchange="toggleSpecify('cbt-other-specify', this)"><label for="cbt1">Calendly</label></div>
+            <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt2" value="Square Appointments" disabled onchange="toggleSpecify('cbt-other-specify', this)"><label for="cbt2">Square Appointments</label></div>
+            <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt3" value="Booksy" disabled onchange="toggleSpecify('cbt-other-specify', this)"><label for="cbt3">Booksy</label></div>
+            <div class="radio-opt"><input type="radio" name="Current Booking Tool" id="cbt4" value="Something else" disabled onchange="toggleSpecify('cbt-other-specify', this)"><label for="cbt4">Something else</label></div>
+          </div>
+          <div class="specify-wrap" id="cbt-other-specify">
+            <input class="q-input" type="text" name="Current Booking Tool (Other)" placeholder="What tool do you use?" disabled>
+          </div>
+          <div class="q-block" style="margin-top:14px; margin-bottom:0;">
+            <label class="q-label" for="q8">Share the booking link <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label>
+            <input class="q-input" type="url" id="q8" name="Current Booking Link" placeholder="https://..." disabled>
+          </div>
         </div>
       </div>
 
       <div class="q-block">
         <label class="q-label">Where do most of your inquiries come from? (Select all that apply)</label>
         <div class="radio-grid">
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is1" value="Facebook"><label for="is1">Facebook</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is2" value="Instagram"><label for="is2">Instagram</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is3" value="TikTok"><label for="is3">TikTok</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is4" value="Google"><label for="is4">Google</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is5" value="Word of mouth / referrals"><label for="is5">Word of mouth / referrals</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is6" value="My existing website"><label for="is6">My existing website</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is7" value="Email list"><label for="is7">Email list</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is8" value="I don't really get inquiries yet"><label for="is8">I don't really get inquiries yet</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is9" value="Other" onchange="toggleSpecify('inq-other-specify', this)"><label for="is9">Other</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is1" value="Social Media"><label for="is1">Social Media</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is2" value="Referrals / Word of Mouth"><label for="is2">Referrals / Word of Mouth</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is3" value="My Website or Google"><label for="is3">My Website or Google</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is4" value="I don't really get inquiries yet"><label for="is4">I don't really get inquiries yet</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Inquiry Sources[]" id="is5" value="Other" onchange="toggleSpecify('inq-other-specify', this)"><label for="is5">Other</label></div>
         </div>
         <div class="specify-wrap" id="inq-other-specify">
-          <input class="q-input" type="text" name="Inquiry Sources (Other)" placeholder="Where else do inquiries come from?">
-        </div>
-      </div>
-
-      <div class="q-block">
-        <label class="q-label">Right now, when someone expresses interest in your services, what typically happens next?</label>
-        <div class="radio-grid single-col">
-          <div class="radio-opt"><input type="radio" name="After Interest" id="ai1" value="They send me a DM"><label for="ai1">They send me a DM</label></div>
-          <div class="radio-opt"><input type="radio" name="After Interest" id="ai2" value="They text me"><label for="ai2">They text me</label></div>
-          <div class="radio-opt"><input type="radio" name="After Interest" id="ai3" value="They call me"><label for="ai3">They call me</label></div>
-          <div class="radio-opt"><input type="radio" name="After Interest" id="ai4" value="I send them a booking link"><label for="ai4">I send them a booking link</label></div>
-          <div class="radio-opt"><input type="radio" name="After Interest" id="ai5" value="I don't really have a process"><label for="ai5">I don't really have a process</label></div>
-          <div class="radio-opt"><input type="radio" name="After Interest" id="ai6" value="Other" onchange="toggleSpecify('after-other-specify', this)"><label for="ai6">Other</label></div>
-        </div>
-        <div class="specify-wrap" id="after-other-specify">
-          <input class="q-input" type="text" name="After Interest (Other)" placeholder="Tell us what usually happens...">
+          <input class="q-input" type="text" name="Inquiry Sources (Other)" placeholder="Where else do inquiries come from?" disabled>
         </div>
       </div>
 
@@ -717,7 +721,7 @@ footer {
       </div>
     </div>
 
-    <!-- STEP 3 -->
+    <!-- STEP 3 — Your Situation -->
     <div class="form-step" id="step-3">
       <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
       <div class="step-header">
@@ -729,31 +733,16 @@ footer {
       <div class="q-block">
         <label class="q-label">What's your biggest challenge right now? (Select all that apply)</label>
         <div class="radio-grid">
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch1" value="Too many questions in DMs"><label for="ch1">Too many questions in DMs</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch2" value="People say they're interested but never book"><label for="ch2">People say they're interested but never book</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch1" value="Too many repeat questions"><label for="ch1">Too many repeat questions (DMs, texts)</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch2" value="Interested people don't book"><label for="ch2">People say they're interested but never book</label></div>
           <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch3" value="No clear booking process"><label for="ch3">No clear booking process</label></div>
           <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch4" value="Too many no-shows"><label for="ch4">Too many no-shows</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch5" value="Losing money to no-shows"><label for="ch5">Losing money to no-shows</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch6" value="Don't know how to follow up with leads"><label for="ch6">Don't know how to follow up</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch7" value="Clients don't take me seriously"><label for="ch7">Clients don't take me seriously</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch8" value="Tired of answering the same questions"><label for="ch8">Answering the same questions on repeat</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch9" value="Business looks unorganized online"><label for="ch9">Business looks unorganized online</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch10" value="Need a more professional online presence"><label for="ch10">Need a more professional presence</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch11" value="Other" onchange="toggleSpecify('ch-other-specify', this)"><label for="ch11">Other</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch5" value="Don't know how to follow up"><label for="ch5">Don't know how to follow up with leads</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch6" value="Business looks unorganized online"><label for="ch6">Business looks unorganized online</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Challenges[]" id="ch7" value="Other" onchange="toggleSpecify('ch-other-specify', this)"><label for="ch7">Other</label></div>
         </div>
         <div class="specify-wrap" id="ch-other-specify">
-          <input class="q-input" type="text" name="Challenges (Other)" placeholder="Tell us what else is going on...">
-        </div>
-      </div>
-
-      <div class="q-block">
-        <label class="q-label">Roughly how much do you think no-shows or lost leads cost you each month? <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label>
-        <div class="radio-grid single-col">
-          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl1" value="Under $200"><label for="rl1">Under $200</label></div>
-          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl2" value="$200 – $500"><label for="rl2">$200 – $500</label></div>
-          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl3" value="$500 – $1,500"><label for="rl3">$500 – $1,500</label></div>
-          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl4" value="$1,500+"><label for="rl4">$1,500+</label></div>
-          <div class="radio-opt"><input type="radio" name="Monthly Revenue Lost" id="rl5" value="Not sure"><label for="rl5">Not sure</label></div>
+          <input class="q-input" type="text" name="Challenges (Other)" placeholder="Tell us what else is going on..." disabled>
         </div>
       </div>
 
@@ -763,16 +752,15 @@ footer {
           <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc1" value="1 – 5"><label for="mc1">1 – 5</label></div>
           <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc2" value="6 – 15"><label for="mc2">6 – 15</label></div>
           <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc3" value="16 – 30"><label for="mc3">16 – 30</label></div>
-          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc4" value="31 – 50"><label for="mc4">31 – 50</label></div>
-          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc5" value="50+"><label for="mc5">50+</label></div>
-          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc6" value="Not booking yet — just starting"><label for="mc6">Not booking yet — just starting</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc4" value="31+"><label for="mc4">31+</label></div>
+          <div class="radio-opt"><input type="radio" name="Monthly Client Volume" id="mc5" value="Not booking yet — just starting"><label for="mc5">Not booking yet — just starting</label></div>
         </div>
       </div>
 
       <div class="q-block">
         <label class="q-label" for="q14">What would a win look like for your business once your NoGhost page is live?</label>
-        <div class="q-helper">What would make this a total win for your business? Be specific — we use this to build your custom proposal.</div>
-        <textarea class="q-input" id="q14" name="Success Definition" placeholder="Be specific — what changes in your business when this is working?"></textarea>
+        <div class="q-helper">Be specific — what changes in your business when this is working? (This is also a great place to mention if no-shows or lost leads are costing you money.)</div>
+        <textarea class="q-input" id="q14" name="Success Definition" placeholder="What does a win look like for you?"></textarea>
       </div>
 
       <div class="form-nav">
@@ -781,7 +769,7 @@ footer {
       </div>
     </div>
 
-    <!-- STEP 4 -->
+    <!-- STEP 4 — Let's Make It Real -->
     <div class="form-step" id="step-4">
       <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
       <div class="step-header">
@@ -791,32 +779,28 @@ footer {
       </div>
 
       <div class="q-block">
-        <label class="q-label">What would you like people to be able to do on your page? (Select all that apply)</label>
+        <label class="q-label">What should your page let clients do? (Select all that apply)</label>
         <div class="radio-grid">
           <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg1" value="Request an appointment"><label for="pg1">Request an appointment</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg2" value="Schedule a consultation"><label for="pg2">Schedule a consultation</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg3" value="View services"><label for="pg3">View services</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg4" value="View pricing"><label for="pg4">View pricing</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg5" value="Submit an inquiry"><label for="pg5">Submit an inquiry</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg6" value="Join a waitlist"><label for="pg6">Join a waitlist</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg7" value="View travel packages"><label for="pg7">View travel packages</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg8" value="Pay a deposit"><label for="pg8">Pay a deposit</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg9" value="Buy a service / package directly"><label for="pg9">Buy a service / package</label></div>
-          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg10" value="Other" onchange="toggleSpecify('pg-other-specify', this)"><label for="pg10">Other</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg2" value="View services &amp; pricing"><label for="pg2">View services &amp; pricing</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg3" value="Pay a deposit"><label for="pg3">Pay a deposit</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg4" value="Join a waitlist"><label for="pg4">Join a waitlist</label></div>
+          <div class="radio-opt"><input type="checkbox" name="Page Goals[]" id="pg5" value="Other" onchange="toggleSpecify('pg-other-specify', this)"><label for="pg5">Other</label></div>
         </div>
         <div class="specify-wrap" id="pg-other-specify">
-          <input class="q-input" type="text" name="Page Goals (Other)" placeholder="What else do you need your page to do?">
+          <input class="q-input" type="text" name="Page Goals (Other)" placeholder="What else do you need your page to do?" disabled>
         </div>
       </div>
 
-      <div class="q-block">
+      <div class="q-block" data-required="radio" data-group="Timeline">
         <label class="q-label">When do you want your NoGhost page live?</label>
         <div class="radio-grid single-col">
-          <div class="radio-opt"><input type="radio" name="Timeline" id="tl1" value="ASAP (within 2 weeks)" required><label for="tl1">ASAP — within 2 weeks</label></div>
-          <div class="radio-opt"><input type="radio" name="Timeline" id="tl2" value="Within 30 days" required><label for="tl2">Within 30 days</label></div>
-          <div class="radio-opt"><input type="radio" name="Timeline" id="tl3" value="1 – 3 months out" required><label for="tl3">1 – 3 months out</label></div>
-          <div class="radio-opt"><input type="radio" name="Timeline" id="tl4" value="Just exploring" required><label for="tl4">Just exploring for now</label></div>
+          <div class="radio-opt"><input type="radio" name="Timeline" id="tl1" value="ASAP (within 2 weeks)"><label for="tl1">ASAP — within 2 weeks</label></div>
+          <div class="radio-opt"><input type="radio" name="Timeline" id="tl2" value="Within 30 days"><label for="tl2">Within 30 days</label></div>
+          <div class="radio-opt"><input type="radio" name="Timeline" id="tl3" value="1 – 3 months out"><label for="tl3">1 – 3 months out</label></div>
+          <div class="radio-opt"><input type="radio" name="Timeline" id="tl4" value="Just exploring"><label for="tl4">Just exploring for now</label></div>
         </div>
+        <div class="q-error">Let us know your timeline so we can plan accordingly.</div>
       </div>
 
       <div class="q-block">
@@ -832,14 +816,16 @@ footer {
 
       <div class="q-divider"></div>
 
-      <div class="q-block">
+      <div class="q-block" data-required="text">
         <label class="q-label" for="q18">Full Name</label>
-        <input class="q-input" type="text" id="q18" name="Full Name" placeholder="Your full name" required>
+        <input class="q-input" type="text" id="q18" name="Full Name" placeholder="Your full name">
+        <div class="q-error">We need your name to send over your proposal.</div>
       </div>
 
-      <div class="q-block">
+      <div class="q-block" data-required="email">
         <label class="q-label" for="q19">Email Address</label>
-        <input class="q-input" type="email" id="q19" name="email" placeholder="you@email.com" required oninput="document.getElementById('reply-to-hidden').value = this.value">
+        <input class="q-input" type="email" id="q19" name="email" placeholder="you@email.com" oninput="document.getElementById('reply-to-hidden').value = this.value">
+        <div class="q-error">We need a valid email so we can get back to you.</div>
       </div>
 
       <div class="q-block">
@@ -848,7 +834,7 @@ footer {
       </div>
 
       <div class="q-block">
-        <label class="q-label">What's the best way to reach you?</label>
+        <label class="q-label">What's the best way to reach you? <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label>
         <div class="radio-grid">
           <div class="radio-opt"><input type="radio" name="Best Contact Method" id="bc1" value="Text"><label for="bc1">Text</label></div>
           <div class="radio-opt"><input type="radio" name="Best Contact Method" id="bc2" value="Phone call"><label for="bc2">Phone call</label></div>
@@ -856,7 +842,7 @@ footer {
           <div class="radio-opt"><input type="radio" name="Best Contact Method" id="bc4" value="DM" onchange="toggleSpecify('dm-specify', this)"><label for="bc4">DM me</label></div>
         </div>
         <div class="specify-wrap" id="dm-specify">
-          <input class="q-input" type="text" name="DM Platform" placeholder="Which platform? (Instagram, Facebook, etc.)">
+          <input class="q-input" type="text" name="DM Platform" placeholder="Which platform? (Instagram, Facebook, etc.)" disabled>
         </div>
       </div>
 
@@ -902,6 +888,13 @@ footer {
 
 <script>
 function goToStep(n) {
+  const current = document.querySelector('.form-step.active');
+  const currentNum = parseInt(current.id.replace('step-', ''), 10);
+
+  if (n > currentNum && !validateStep(current)) {
+    return;
+  }
+
   document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
   const target = document.getElementById('step-' + n);
   if (target) {
@@ -910,25 +903,109 @@ function goToStep(n) {
   }
 }
 
+// ── STEP-LEVEL VALIDATION ──
+function validateStep(stepEl) {
+  let valid = true;
+  const blocks = stepEl.querySelectorAll('.q-block[data-required]');
+
+  blocks.forEach(block => {
+    const type = block.dataset.required;
+    let blockValid = true;
+
+    if (type === 'text') {
+      const inputs = block.querySelectorAll('input.q-input:not([disabled])');
+      blockValid = Array.from(inputs).every(inp => inp.value.trim() !== '');
+    } else if (type === 'email') {
+      const input = block.querySelector('input[type="email"]');
+      blockValid = !!(input && input.value.trim() !== '' && input.checkValidity());
+    } else if (type === 'radio') {
+      const group = block.dataset.group;
+      const checked = block.querySelector('input[name="' + group + '"]:checked');
+      blockValid = !!checked;
+    }
+
+    const errorEl = block.querySelector('.q-error');
+    if (!blockValid) {
+      valid = false;
+      block.classList.add('has-error');
+      if (errorEl) errorEl.classList.add('visible');
+      setTimeout(() => block.classList.remove('has-error'), 300);
+    } else {
+      block.classList.remove('has-error');
+      if (errorEl) errorEl.classList.remove('visible');
+    }
+  });
+
+  if (!valid) {
+    const firstError = stepEl.querySelector('.q-error.visible');
+    if (firstError) {
+      firstError.closest('.q-block').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  return valid;
+}
+
+// Clear error state as soon as user starts fixing it
+document.querySelectorAll('.q-block[data-required]').forEach(block => {
+  const clearError = () => {
+    block.classList.remove('has-error');
+    const errorEl = block.querySelector('.q-error');
+    if (errorEl) errorEl.classList.remove('visible');
+  };
+  block.addEventListener('input', clearError);
+  block.addEventListener('change', clearError);
+});
+
 function toggleConditional(id, show) {
   const el = document.getElementById(id);
   if (el) {
     el.classList.toggle('visible', show);
     el.querySelectorAll('input, textarea').forEach(f => {
       f.disabled = !show;
-      if (!show) f.value = '';
+      if (!show) {
+        if (f.type === 'radio' || f.type === 'checkbox') {
+          f.checked = false;
+        } else {
+          f.value = '';
+        }
+      }
     });
+    if (!show) {
+      el.querySelectorAll('.specify-wrap').forEach(sw => {
+        sw.classList.remove('visible');
+        sw.querySelectorAll('input').forEach(si => { si.value = ''; si.disabled = true; });
+      });
+    }
   }
 }
 
 function toggleSpecify(id, checkbox) {
   const el = document.getElementById(id);
   if (!el) return;
+
   if (checkbox.type === 'checkbox') {
     el.classList.toggle('visible', checkbox.checked);
-    if (!checkbox.checked) el.querySelectorAll('input').forEach(f => f.value = '');
+    el.querySelectorAll('input').forEach(f => {
+      f.disabled = !checkbox.checked;
+      if (!checkbox.checked) f.value = '';
+    });
   } else {
-    el.classList.add('visible');
+    // Radio — show specify only if THIS radio is "Other"/"Something else" AND it's checked
+    const isOtherValue = (checkbox.value === 'Other' || checkbox.value === 'Something else');
+    const showSpecify = checkbox.checked && isOtherValue;
+
+    el.classList.toggle('visible', showSpecify);
+    el.querySelectorAll('input').forEach(f => {
+      f.disabled = !showSpecify;
+      if (!showSpecify) f.value = '';
+    });
+
+    // If a non-"Other" radio in the same group gets checked, hide & clear this specify
+    if (checkbox.checked && !isOtherValue) {
+      el.classList.remove('visible');
+      el.querySelectorAll('input').forEach(f => { f.disabled = true; f.value = ''; });
+    }
   }
 }
 
@@ -939,6 +1016,11 @@ const originalBtnText = submitBtn.textContent;
 
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
+
+  const step4 = document.getElementById('step-4');
+  if (!validateStep(step4)) {
+    return;
+  }
 
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending… ⏳';
