@@ -61,9 +61,9 @@
   },
   "areaServed": "United States",
   "offers": [
-    {"@type": "Offer", "name": "Page Build (Starter)", "price": "197", "priceCurrency": "USD"},
-    {"@type": "Offer", "name": "Page + Setup (Complete)", "price": "347", "priceCurrency": "USD"},
-    {"@type": "Offer", "name": "Page + Setup + Training (Premium)", "price": "497", "priceCurrency": "USD"}
+    {"@type": "Offer", "name": "NoGhost Starter — Custom Booking Page", "price": "197", "priceCurrency": "USD", "url": "https://stan.store/SabrinaNicholsJohnson/p/noghost-starter--custom-booking-page"},
+    {"@type": "Offer", "name": "NoGhost Complete — Page + Booking Setup", "price": "347", "priceCurrency": "USD", "url": "https://stan.store/SabrinaNicholsJohnson/p/noghost-complete--page--booking-setup"},
+    {"@type": "Offer", "name": "NoGhost Premium — Page + Growth System", "price": "497", "priceCurrency": "USD", "url": "https://stan.store/SabrinaNicholsJohnson/p/noghost-premium--page--growth-system"}
   ]
 }
 </script>
@@ -323,6 +323,37 @@ img { max-width: 100%; height: auto; }
   margin-bottom: 4px;
   letter-spacing: -0.02em;
 }
+
+.pricing-price-was {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+  margin-left: 6px;
+  vertical-align: middle;
+  letter-spacing: 0;
+}
+
+.pricing-help {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.pricing-help a {
+  color: var(--accent-deep);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.pricing-help a:hover { color: var(--text-primary); }
 
 .pricing-price span {
   font-size: 22px;
@@ -1921,11 +1952,13 @@ footer {
 
       <article class="pricing-card" aria-labelledby="tier-starter">
         <p class="pricing-tier">Starter</p>
-        <h3 id="tier-starter" class="pricing-name">Page Build</h3>
-        <div class="pricing-price"><span aria-hidden="true">$</span><span class="visually-hidden">USD </span>197</div>
-        <p class="pricing-note">Founder's Rate</p>
+        <h3 id="tier-starter" class="pricing-name">NoGhost Starter</h3>
+        <div class="pricing-price">
+          <span aria-hidden="true">$</span><span class="visually-hidden">USD </span>197<span class="pricing-price-was" aria-label="Regular price 497 dollars">$497</span>
+        </div>
+        <p class="pricing-note">Save $300 · Founder's Rate (first 5 only)</p>
         <div class="pricing-divider" aria-hidden="true"></div>
-        <p class="pricing-desc">You already have a booking tool. We build a custom branded page around it and connect everything so clients land somewhere professional.</p>
+        <p class="pricing-desc">For service businesses that already use Calendly, Square, Booksy, or Acuity. We build a real branded page that wraps around your existing booking tool.</p>
         <ul class="pricing-features">
           <li>Custom branded booking page</li>
           <li>Service menu with pricing</li>
@@ -1936,17 +1969,17 @@ footer {
           <li>Live in 72 business hours</li>
           <li>1 round of light edits (text and image swaps)</li>
         </ul>
-        <a href="noghost-qualify.html" class="pricing-btn">Get My Page Started <span aria-hidden="true">→</span></a>
+        <a href="https://stan.store/SabrinaNicholsJohnson/p/noghost-starter--custom-booking-page" class="pricing-btn" target="_blank" rel="noopener" aria-label="Buy NoGhost Starter for $197 on Stan Store">Get Starter — $197 <span aria-hidden="true">→</span></a>
       </article>
 
       <article class="pricing-card featured" aria-labelledby="tier-complete">
         <div class="pricing-featured-badge" aria-label="Most popular plan">Most Popular</div>
         <p class="pricing-tier">Complete</p>
-        <h3 id="tier-complete" class="pricing-name">Page + Setup</h3>
+        <h3 id="tier-complete" class="pricing-name">NoGhost Complete</h3>
         <div class="pricing-price"><span aria-hidden="true">$</span><span class="visually-hidden">USD </span>347</div>
-        <p class="pricing-note">Founder's Rate</p>
+        <p class="pricing-note">Page + Booking Setup</p>
         <div class="pricing-divider" aria-hidden="true"></div>
-        <p class="pricing-desc">You don't have a booking tool yet. We build the page, recommend the right free tool for your business, and set it up so everything works together.</p>
+        <p class="pricing-desc">No booking tool yet? We pick the right one for your business, set it up end-to-end, and connect it to your custom page so everything just works.</p>
         <ul class="pricing-features">
           <li>Everything in Starter</li>
           <li>Booking tool recommendation for your industry</li>
@@ -1955,27 +1988,30 @@ footer {
           <li>Everything connected and tested before delivery</li>
           <li>1 round of revisions on your page and tool setup</li>
         </ul>
-        <a href="noghost-qualify.html" class="pricing-btn featured-btn">Build My Page + Setup <span aria-hidden="true">→</span></a>
+        <a href="https://stan.store/SabrinaNicholsJohnson/p/noghost-complete--page--booking-setup" class="pricing-btn featured-btn" target="_blank" rel="noopener" aria-label="Buy NoGhost Complete for $347 on Stan Store">Get Complete — $347 <span aria-hidden="true">→</span></a>
       </article>
 
       <article class="pricing-card" aria-labelledby="tier-premium">
         <p class="pricing-tier">Premium</p>
-        <h3 id="tier-premium" class="pricing-name">Page + Setup + Training</h3>
+        <h3 id="tier-premium" class="pricing-name">NoGhost Premium</h3>
         <div class="pricing-price"><span aria-hidden="true">$</span><span class="visually-hidden">USD </span>497</div>
-        <p class="pricing-note">Founder's Rate</p>
+        <p class="pricing-note">Page + Growth System</p>
         <div class="pricing-divider" aria-hidden="true"></div>
-        <p class="pricing-desc">Everything built, set up, and then walked through with you so you know exactly how to manage your page and booking tool going forward.</p>
+        <p class="pricing-desc">For business owners who don't just want a page — you want the page, the prompts, the playbook, and a real strategy partner walking with you through your launch.</p>
         <ul class="pricing-features">
           <li>Everything in Complete</li>
-          <li>15-minute 1-on-1 walkthrough call</li>
-          <li>You leave knowing how to update your own page</li>
+          <li>Personalized growth playbook built around your business</li>
+          <li>Custom AI prompts you can reuse for content and clients</li>
+          <li>1-on-1 strategy session with Sabrina</li>
+          <li>Launch support — I walk with you the first 30 days</li>
           <li>2 rounds of revisions included</li>
         </ul>
-        <a href="noghost-qualify.html" class="pricing-btn">Get the Full Package <span aria-hidden="true">→</span></a>
+        <a href="https://stan.store/SabrinaNicholsJohnson/p/noghost-premium--page--growth-system" class="pricing-btn" target="_blank" rel="noopener" aria-label="Buy NoGhost Premium for $497 on Stan Store">Get Premium — $497 <span aria-hidden="true">→</span></a>
       </article>
 
     </div>
     <p class="pricing-scarcity"><span aria-hidden="true">⚡</span> <strong>5 spots available this month.</strong> Founder's Rate goes away after the first 5 builds.</p>
+    <p class="pricing-help">Not sure which tier fits your business? <a href="https://calendly.com/sabrinanicholsjohnson/30min" target="_blank" rel="noopener">Book a free 30-min call with Sabrina <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
